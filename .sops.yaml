@@ -1,0 +1,9 @@
+keys:
+  - &hosts__workstation age1lu5rg87yxy6ypmldz99me3093nkyezwcpwdth3d2dkj0pd6hzfqqju6a4v
+  - &users__adrtivv age1zgu35qey2dxgaez2atvtkg9pwkqy3qnnns0xq3t9qm7xunzgjs6qrx9xhw
+creation_rules:
+  - key_groups:
+      - age:
+          - *hosts__workstation
+          - *users__adrtivv
+    path_regex: secrets.yaml$
