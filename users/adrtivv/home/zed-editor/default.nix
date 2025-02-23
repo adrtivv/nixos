@@ -1,9 +1,21 @@
 {pkgs, ...}: {
   # https://home-manager-options.extranix.com/?query=programs.zed-editor&release=master
   programs.zed-editor = {
-    extensions = ["basher" "biome" "catppuccin" "catppuccin-icons" "docker-compose" "dockerfile" "markdown-oxide" "nix"];
+    extensions = [
+      "basher"
+      # # Doesn't work on nixos because it requires FHS compliance.
+      # "biome"
+      "catppuccin"
+      "catppuccin-icons"
+      "docker-compose"
+      "dockerfile"
+      # # Doesn't work on nixos because it requires FHS compliance.
+      # "markdown-oxide"
+      "nix"
+    ];
     extraPackages = with pkgs; [
       alejandra
+      # Zed's "nix" extension doesn't install nixd itself. Instead, it expects it to be present in the $PATH(or $NIX_PATH on nixos) of the current user.
       nixd
     ];
     enable = true;
@@ -25,8 +37,11 @@
               command = "alejandra";
             };
           };
-          language_servers = ["nixd" "..."];
+          language_servers = ["nixd" "!nil" "..."];
         };
+      };
+      project_panel = {
+        "dock" = "right";
       };
       relative_line_numbers = true;
       soft_wrap = "editor_width";
