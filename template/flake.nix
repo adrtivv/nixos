@@ -16,5 +16,6 @@
         ];
       };
     };
+    formatter.${system} = pkgs.alejandra;
   };
 }
