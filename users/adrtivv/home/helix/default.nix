@@ -1,8 +1,4 @@
-{
-  pkgs,
-  specialArgs,
-  ...
-}: {
+{pkgs, ...}: {
   # https://home-manager-options.extranix.com/?query=programs.helix&release=master
   programs.helix = {
     defaultEditor = true;
