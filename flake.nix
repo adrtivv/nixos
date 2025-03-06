@@ -5,14 +5,19 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   url = "github:nix-community/disko";
     # };
-    home-manager = {
+    home_manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    sops-nix = {
+    plasma_manager = {
+      inputs.home-manager.follows = "home_manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/plasma-manager";
+    };
+    sops_nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:mic92/sops-nix";
     };
@@ -22,8 +27,9 @@
     };
   };
   outputs = {
-    home-manager,
+    home_manager,
     nixpkgs,
+    plasma_manager,
     ...
   } @ inputs: let
     emailAddress = "adrtivv@gmail.com";
@@ -34,7 +40,7 @@
     nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/workstation
-        home-manager.nixosModules.home-manager
+        home_manager.nixosModules.home-manager
         {
           home-manager = {
             extraSpecialArgs = {
@@ -43,6 +49,7 @@
               inherit system;
               inherit userName;
             };
+            sharedModules = [plasma_manager.homeManagerModules.plasma-manager];
             useGlobalPkgs = true;
             users.${userName} = import ./users/adrtivv/home;
             useUserPackages = true;

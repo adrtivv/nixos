@@ -45,7 +45,7 @@
   };
 
   imports = [
-    specialArgs.inputs.sops-nix.homeManagerModules.sops
+    specialArgs.inputs.sops_nix.homeManagerModules.sops
     ./bash
     ./bat
     ./bottom
@@ -62,6 +62,7 @@
     ./helix
     ./home-manager
     ./mpv
+    ./plasma
     ./ripgrep
     ./starship
     ./tealdeer
