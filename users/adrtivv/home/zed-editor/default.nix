@@ -1,21 +1,23 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   # https://home-manager-options.extranix.com/?query=programs.zed-editor&release=master
   programs.zed-editor = {
     extensions = [
       "basher"
-      # # Doesn't work on nixos because it requires FHS compliance.
-      # "biome"
+      "biome"
       "catppuccin"
       "catppuccin-icons"
       "docker-compose"
       "dockerfile"
-      # # Doesn't work on nixos because it requires FHS compliance.
-      # "markdown-oxide"
+      "markdown-oxide"
       "nix"
     ];
     extraPackages = with pkgs; [
       alejandra
-      # Zed's "nix" extension doesn't install nixd itself. Instead, it expects it to be present in the $PATH(or $NIX_PATH on nixos) of the current user.
+      markdown-oxide
       nixd
     ];
     enable = true;
@@ -38,6 +40,15 @@
             };
           };
           language_servers = ["nixd" "!nil" "..."];
+        };
+      };
+      lsp = {
+        biome = {
+          # https://github.com/biomejs/biome-zed/blob/main/CONTRIBUTING.md#custom-biome-binary
+          binary = {
+            arguments = ["lsp-proxy"];
+            path = lib.getExe pkgs.biome;
+          };
         };
       };
       project_panel = {
