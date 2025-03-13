@@ -63,9 +63,9 @@
         mode = "system";
       };
       ui_font_size = 16;
-      # vim = {
-      #   default_mode = "helix_normal";
-      # };
+      vim = {
+        default_mode = "helix_normal";
+      };
       vim_mode = true;
     };
   };
