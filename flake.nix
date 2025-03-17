@@ -11,7 +11,6 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     plasma_manager = {
       inputs.home-manager.follows = "home_manager";
       inputs.nixpkgs.follows = "nixpkgs";
