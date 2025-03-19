@@ -12,6 +12,7 @@
       "catppuccin-icons"
       "docker-compose"
       "dockerfile"
+      "git-firefly"
       "graphql"
       "markdown-oxide"
       "nix"

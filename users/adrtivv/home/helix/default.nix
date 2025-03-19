@@ -150,7 +150,7 @@
         lsp = {
           # Disable automatically popups of signature parameter help
           auto-signature-help = false;
-          display-inlay-hints = true;
+          display-inlay-hints = false;
           # Show LSP messages in the status line
           display-messages = true;
         };
