@@ -7,10 +7,13 @@
     # };
     home_manager = {
       inputs.nixpkgs.follows = "nixpkgs";
+      # url = "github:nix-community/home-manager/release-24.11"
+      # url = "github:nix-community/home-manager"
       url = "github:nix-community/home-manager";
     };
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11"
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    # nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     plasma_manager = {
       inputs.home-manager.follows = "home_manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,8 +53,8 @@
             };
             sharedModules = [plasma_manager.homeManagerModules.plasma-manager];
             useGlobalPkgs = true;
-            users.${userName} = import ./users/adrtivv/home;
             useUserPackages = true;
+            users.${userName} = import ./users/adrtivv/home;
           };
         }
       ];

@@ -23,6 +23,7 @@
       nixd
     ];
     enable = true;
+    # package = specialArgs.inputs.nixpkgs_unstable.legacyPackages.${specialArgs.system}.zed-editor;
     userKeymaps = {};
     # For information on how to configure Zed, see the Zed documentation: https://zed.dev/docs/configuring-zed
     # To see all of Zed's default settings without changing your custom settings, run `zed: open default settings` from the command palette (cmd-shift-p / ctrl-shift-p).
