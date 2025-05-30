@@ -16,6 +16,7 @@
       "graphql"
       "markdown-oxide"
       "nix"
+      "sql"
     ];
     extraPackages = with pkgs; [
       alejandra
