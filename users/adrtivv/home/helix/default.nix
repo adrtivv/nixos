@@ -9,6 +9,7 @@
       biome
       docker-compose-language-service
       dockerfile-language-server-nodejs
+      graphql-language-service-cli
       lldb
       markdown-oxide
       nixd
