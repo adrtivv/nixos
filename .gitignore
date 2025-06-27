@@ -1,4 +1,4 @@
-/.direnv
-/.next
-/node_modules
-/result
+**/.direnv
+**/.next
+**/node_modules
+**/result

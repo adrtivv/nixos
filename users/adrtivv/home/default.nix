@@ -63,6 +63,7 @@
     ./helix
     ./home-manager
     ./mpv
+    ./nh
     ./plasma
     ./ripgrep
     ./starship
