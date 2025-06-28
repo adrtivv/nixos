@@ -30,7 +30,6 @@
     # For information on how to configure Zed, see the Zed documentation: https://zed.dev/docs/configuring-zed
     # To see all of Zed's default settings without changing your custom settings, run `zed: open default settings` from the command palette (cmd-shift-p / ctrl-shift-p).
     userSettings = {
-      buffer_font_size = 16;
       icon_theme = {
         dark = "Catppuccin Mocha";
         light = "Catppuccin Latte";
@@ -61,12 +60,12 @@
       };
       relative_line_numbers = true;
       soft_wrap = "editor_width";
-      theme = {
-        dark = "Catppuccin Mocha";
-        light = "Catppuccin Latte";
-        mode = "system";
-      };
-      ui_font_size = 16;
+      # theme = {
+      #   dark = "Catppuccin Mocha";
+      #   light = "Catppuccin Latte";
+      #   mode = "system";
+      # };
+      # ui_font_size = 16;
       vim = {
         default_mode = "helix_normal";
       };

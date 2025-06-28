@@ -23,17 +23,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:mic92/sops-nix";
     };
+    stylix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/stylix";
+    };
     zen_browser = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:0xc000022070/zen-browser-flake";
     };
   };
-  outputs = {
-    home_manager,
-    nixpkgs,
-    plasma_manager,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     emailAddress = "adrtivv@gmail.com";
     hostName = "workstation";
     system = "x86_64-linux";
@@ -42,7 +41,7 @@
     nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/workstation
-        home_manager.nixosModules.home-manager
+        inputs.home_manager.nixosModules.home-manager
         {
           home-manager = {
             extraSpecialArgs = {
@@ -51,12 +50,13 @@
               inherit system;
               inherit userName;
             };
-            sharedModules = [plasma_manager.homeManagerModules.plasma-manager];
+            sharedModules = [inputs.plasma_manager.homeManagerModules.plasma-manager];
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${userName} = import ./users/adrtivv/home;
           };
         }
+        inputs.stylix.nixosModules.stylix
       ];
       specialArgs = {
         inherit hostName;

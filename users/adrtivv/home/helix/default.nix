@@ -160,7 +160,7 @@
         # Add the git branch to the status line.
         statusline.left = ["mode" "spinner" "version-control" "file-name"];
       };
-      theme = "catppuccin_mocha";
+      # theme = "catppuccin_mocha";
     };
   };
 }
