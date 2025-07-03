@@ -22,7 +22,6 @@
       language = [
         {
           auto-format = true;
-          name = "css";
           language-servers = [
             {
               except-features = ["format"];
@@ -30,26 +29,37 @@
             }
             "biome"
           ];
+          name = "css";
         }
         {
           auto-format = true;
-          name = "graphql";
           language-servers = ["graphql-language-service" "biome"];
+          name = "graphql";
         }
         {
           auto-format = true;
+          language-servers = [
+            {
+              except-features = ["format"];
+              name = "typescript-language-server";
+            }
+            "biome"
+          ];
           name = "javascript";
-          language-servers = [
-            {
-              except-features = ["format"];
-              name = "typescript-language-server";
-            }
-            "biome"
-          ];
         }
         {
           auto-format = true;
+          language-servers = [
+            {
+              except-features = ["format"];
+              name = "vscode-json-language-server";
+            }
+            "biome"
+          ];
           name = "json";
+        }
+        {
+          auto-format = true;
           language-servers = [
             {
               except-features = ["format"];
@@ -57,21 +67,10 @@
             }
             "biome"
           ];
-        }
-        {
-          auto-format = true;
           name = "jsonc";
-          language-servers = [
-            {
-              except-features = ["format"];
-              name = "vscode-json-language-server";
-            }
-            "biome"
-          ];
         }
         {
           auto-format = true;
-          name = "jsx";
           language-servers = [
             {
               except-features = ["format"];
@@ -79,32 +78,32 @@
             }
             "biome"
           ];
+          name = "jsx";
         }
         {
           auto-format = true;
           # formatter = { command = "alejandra" ;};
-          name = "nix";
           language-servers = ["nixd"];
+          name = "nix";
         }
         {
           auto-format = true;
-          name = "rust";
           language-servers = ["rust-analyzer"];
+          name = "rust";
         }
         {
           auto-format = true;
+          language-servers = [
+            {
+              except-features = ["format"];
+              name = "typescript-language-server";
+            }
+            "biome"
+          ];
           name = "tsx";
-          language-servers = [
-            {
-              except-features = ["format"];
-              name = "typescript-language-server";
-            }
-            "biome"
-          ];
         }
         {
           auto-format = true;
-          name = "typescript";
           language-servers = [
             {
               except-features = ["format"];
@@ -112,6 +111,7 @@
             }
             "biome"
           ];
+          name = "typescript";
         }
       ];
       language-server = {
