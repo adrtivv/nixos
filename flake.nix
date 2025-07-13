@@ -66,9 +66,13 @@
       };
     };
     templates = {
-      template = {
+      nix = {
         description = "";
-        path = ./template;
+        path = ./templates/nix;
+      };
+      rust = {
+        description = "";
+        path = ./templates/rust;
       };
     };
   };
