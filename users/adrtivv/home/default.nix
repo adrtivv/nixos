@@ -27,7 +27,6 @@
       brave
       ffmpeg
       file
-      foliate
       gparted
       obsidian
       qbittorrent
@@ -56,6 +55,7 @@
     ./fastfetch
     ./fd
     ./firefox
+    ./foliate
     ./gh
     ./ghostty
     ./git

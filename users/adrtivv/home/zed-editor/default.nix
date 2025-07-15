@@ -56,16 +56,16 @@
         };
       };
       project_panel = {
-        "dock" = "right";
+        dock = "right";
       };
       relative_line_numbers = true;
       soft_wrap = "editor_width";
-      # theme = {
-      #   dark = "Catppuccin Mocha";
-      #   light = "Catppuccin Latte";
-      #   mode = "system";
-      # };
-      # ui_font_size = 16;
+      theme = {
+        dark = "Catppuccin Mocha";
+        light = "Catppuccin Latte";
+        mode = "system";
+      };
+      ui_font_size = 16;
       vim = {
         default_mode = "helix_normal";
       };
