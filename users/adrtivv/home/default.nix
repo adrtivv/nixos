@@ -3,6 +3,17 @@
   specialArgs,
   ...
 }: {
+  # https://home-manager-options.extranix.com/?query=fonts&release=master
+  fonts.fontconfig = {
+    defaultFonts = {
+      emoji = ["Noto Color Emoji"];
+      monospace = ["JetBrainsMono Nerd Font Mono"];
+      sansSerif = ["JetBrainsMono Nerd Font"];
+      serif = ["JetBrainsMono Nerd Font"];
+    };
+    enable = true;
+  };
+
   # https://home-manager-options.extranix.com/?query=home&release=master
   home = {
     # # link the configuration file in current directory to the specified location in home directory
@@ -28,6 +39,8 @@
       ffmpeg
       file
       gparted
+      nerd-fonts.jetbrains-mono
+      noto-fonts-emoji
       obsidian
       qbittorrent
       specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default
