@@ -75,6 +75,7 @@
     ./gitui
     ./helix
     ./home-manager
+    ./jujutsu
     ./mpv
     ./nh
     ./plasma
