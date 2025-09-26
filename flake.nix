@@ -51,7 +51,7 @@
               inherit userName;
             };
             sharedModules = [
-              plasma_manager.homeManagerModules.plasma-manager
+              plasma_manager.homeModules.plasma-manager
             ];
             useGlobalPkgs = true;
             useUserPackages = true;

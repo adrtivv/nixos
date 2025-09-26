@@ -6,7 +6,7 @@
       cursor-click-to-move = true;
       bold-is-bright = true;
       mouse-hide-while-typing = true;
-      theme = "dark:catppuccin-mocha,light:catppuccin-latte";
+      theme = "dark:Catppuccin Mocha,light:Catppuccin Latte";
       window-decoration = "none";
     };
   };

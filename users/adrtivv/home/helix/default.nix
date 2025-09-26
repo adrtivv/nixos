@@ -8,7 +8,7 @@
       bash-language-server
       biome
       docker-compose-language-service
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
       graphql-language-service-cli
       lldb
       markdown-oxide

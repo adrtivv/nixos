@@ -1,0 +1,6 @@
+**/.env
+**/.jj/
+**/.next/
+**/node_modules/
+.direnv/
+dist/

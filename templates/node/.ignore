@@ -1,5 +1,7 @@
 **/.env
 **/.git/
 **/.jj/
+**/.next/
+**/node_modules/
 .direnv/
-target/
+dist/

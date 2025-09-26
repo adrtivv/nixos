@@ -17,8 +17,8 @@
           NODE_ENV = "production";
         };
         nativeBuildInputs = with pkgs; [
-          corepack
           nodejs
+          pnpm
         ];
         packages = with pkgs; [];
       };
