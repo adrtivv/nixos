@@ -45,7 +45,6 @@
       obsidian
       # https://wiki.nixos.org/wiki/OpenRGB
       # https://search.nixos.org/options?channel=unstable&query=services.hardware.openrgb
-      openrgb-with-all-plugins
       qbittorrent
       specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default
       sops

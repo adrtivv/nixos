@@ -5,7 +5,6 @@
   config,
   hostName,
   inputs,
-  lib,
   pkgs,
   userName,
   ...
@@ -20,10 +19,21 @@
   # ];
 
   hardware = {
+    # https://wiki.nixos.org/wiki/Bluetooth#Setup
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+        };
+      };
+    };
     graphics = {
       enable = true;
       enable32Bit = true;
     };
+    # # https://wiki.nixos.org/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
+    # pulseaudio.enable = true;
     # https://wiki.nixos.org/wiki/NVIDIA
     nvidia = {
       modesetting.enable = true;
@@ -107,6 +117,7 @@
     ];
   };
 
+  # https://wiki.nixos.org/wiki/Laptop#Power_management
   powerManagement.enable = true;
 
   programs = {
