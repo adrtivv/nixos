@@ -50,6 +50,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # Since this file is hardware specific, there's no point tracking it through version control. Instead its default location on all nixos systems should be pointed towards as shown below so as to make this nixos configuration work on all compatible hardware.
+    # /etc/nixos/hardware-configuration.nix
     inputs.sops_nix.nixosModules.sops
   ];
 
@@ -85,8 +87,8 @@
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [
-      "nix-command"
       "flakes"
+      "nix-command"
     ];
   };
 

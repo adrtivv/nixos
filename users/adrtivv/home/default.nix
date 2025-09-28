@@ -39,6 +39,7 @@
       ffmpeg
       file
       gparted
+      lenovo-legion
       nerd-fonts.jetbrains-mono
       noto-fonts-emoji
       obsidian
