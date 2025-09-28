@@ -5,6 +5,7 @@
   config,
   hostName,
   inputs,
+  lib,
   pkgs,
   userName,
   ...
@@ -19,15 +20,29 @@
   # ];
 
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
     # https://wiki.nixos.org/wiki/NVIDIA
     nvidia = {
       modesetting.enable = true;
-      # https://wiki.nixos.org/wiki/NVIDIA
+      # https://wiki.nixos.org/wiki/NVIDIA#Kernel_modules_from_NVIDIA
       open = true;
       # # https://wiki.nixos.org/wiki/NVIDIA#Beta/production_branches
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.production;
+      # https://wiki.nixos.org/wiki/NVIDIA#Graphical_corruption_and_system_crashes_on_suspend/resume
       powerManagement.enable = true;
+      # https://wiki.nixos.org/wiki/NVIDIA#Offload_mode
+      prime = {
+        amdgpuBusId = "PCI:6:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      };
     };
   };
 
@@ -92,6 +107,8 @@
     ];
   };
 
+  powerManagement.enable = true;
+
   programs = {
     dconf.enable = true;
 
@@ -130,8 +147,6 @@
       alsa.support32Bit = true;
       # Enable sound with pipewire.
       enable = true;
-      # # If you want to use JACK applications, uncomment this
-      # jack.enable = true;
       pulse.enable = true;
 
       # # use the example session manager (no others are packaged yet so this is enabled by default, no need to redefine it in your config for now)
@@ -145,7 +160,7 @@
       # # Enable touchpad support (enabled default in most desktopManager).
       # libinput.enable = true;
 
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["modesetting" "nvidia"];
 
       # Configure keymap in X11
       xkb = {
@@ -175,6 +190,20 @@
     };
     validateSopsFiles = false;
   };
+
+  # # https://wiki.nixos.org/wiki/NVIDIA#Multiple_boot_configurations
+  # specialisation.prime_sync_mode.configuration = {
+  #   hardware.nvidia.prime = {
+  #     offload = {
+  #       enable = lib.mkForce false;
+  #       enableOffloadCmd = lib.mkForce false;
+  #     };
+  #     # https://wiki.nixos.org/wiki/NVIDIA#Sync_mode
+  #     # Frames are directly sent from the dgpu output port(hdmi, displayport etc.) to the laptop display. Consumes more power since dgpu always stays on.
+  #     sync.enable = true;
+  #   };
+  #   system.nixos.tags = ["prime_sync_mode"];
+  # };
 
   # This value determines the NixOS release from which the default settings for stateful data, like file locations and database versions on your system were taken. It‘s perfectly fine and recommended to leave this value at the release version of the first install of this system. Before changing this value read the documentation for this option (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
