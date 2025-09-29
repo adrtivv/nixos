@@ -121,6 +121,35 @@
   powerManagement.enable = true;
 
   programs = {
+    # https://wiki.nixos.org/wiki/Laptop#auto-cpufreq
+    # https://github.com/AdnanHodzic/auto-cpufreq
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          # enable_thresholds = true;
+          # energy_perf_bias = "balance_power";
+          # energy_performance_preference = "power";
+          governor = "powersave";
+          # platform_profile = "low-power";
+          # scaling_max_freq = "1000000";
+          # scaling_min_freq = "800000";
+          # start_threshold = "20";
+          # stop_threshold = "80";
+          turbo = "auto";
+        };
+        charger = {
+          # energy_perf_bias = "balance_performance";
+          # energy_performance_preference = "performance";
+          governor = "performance";
+          # platform_profile = "performance";
+          # scaling_max_freq = "1000000";
+          # scaling_min_freq = "800000";
+          turbo = "auto";
+        };
+      };
+    };
+
     dconf.enable = true;
 
     # gamemode.enable = true;
@@ -164,8 +193,15 @@
       # media-session.enable = true;
     };
 
+    # https://gitlab.freedesktop.org/upower/power-profiles-daemon
+    power-profiles-daemon.enable = false;
+
     # Enable CUPS to print documents.
     printing.enable = true;
+
+    # https://wiki.nixos.org/wiki/Laptop#thermald
+    # https://wiki.debian.org/thermald
+    thermald.enable = true;
 
     xserver = {
       # # Enable touchpad support (enabled default in most desktopManager).
