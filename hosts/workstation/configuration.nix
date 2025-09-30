@@ -207,7 +207,7 @@
       # # Enable touchpad support (enabled default in most desktopManager).
       # libinput.enable = true;
 
-      videoDrivers = ["modesetting" "nvidia"];
+      videoDrivers = ["nvidia"];
 
       # Configure keymap in X11
       xkb = {
