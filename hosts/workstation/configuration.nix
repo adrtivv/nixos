@@ -194,10 +194,6 @@
     # Enable CUPS to print documents.
     printing.enable = true;
 
-    # # https://wiki.nixos.org/wiki/Laptop#thermald
-    # # https://wiki.debian.org/thermald
-    # thermald.enable = true;
-
     xserver = {
       # # Enable touchpad support (enabled default in most desktopManager).
       # libinput.enable = true;
