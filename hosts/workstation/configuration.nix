@@ -5,7 +5,7 @@
   config,
   hostName,
   inputs,
-  pkgs,
+  # pkgs,
   userName,
   ...
 }: {
@@ -14,9 +14,6 @@
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
   };
-
-  # environment.systemPackages = with pkgs; [
-  # ];
 
   hardware = {
     # https://wiki.nixos.org/wiki/Bluetooth#Setup
@@ -43,8 +40,11 @@
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.production;
       # https://wiki.nixos.org/wiki/NVIDIA#Graphical_corruption_and_system_crashes_on_suspend/resume
-      powerManagement.enable = true;
-      # https://wiki.nixos.org/wiki/NVIDIA#Offload_mode
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+      # # https://wiki.nixos.org/wiki/NVIDIA#Offload_mode
       prime = {
         amdgpuBusId = "PCI:6:0:0";
         nvidiaBusId = "PCI:1:0:0";
@@ -121,34 +121,34 @@
   powerManagement.enable = true;
 
   programs = {
-    # https://wiki.nixos.org/wiki/Laptop#auto-cpufreq
-    # https://github.com/AdnanHodzic/auto-cpufreq
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          # enable_thresholds = true;
-          # energy_perf_bias = "balance_power";
-          # energy_performance_preference = "power";
-          governor = "powersave";
-          # platform_profile = "low-power";
-          # scaling_max_freq = "1000000";
-          # scaling_min_freq = "800000";
-          # start_threshold = "20";
-          # stop_threshold = "80";
-          turbo = "auto";
-        };
-        charger = {
-          # energy_perf_bias = "balance_performance";
-          # energy_performance_preference = "performance";
-          governor = "performance";
-          # platform_profile = "performance";
-          # scaling_max_freq = "1000000";
-          # scaling_min_freq = "800000";
-          turbo = "auto";
-        };
-      };
-    };
+    # # https://wiki.nixos.org/wiki/Laptop#auto-cpufreq
+    # # https://github.com/AdnanHodzic/auto-cpufreq
+    # auto-cpufreq = {
+    #   enable = true;
+    #   settings = {
+    #     battery = {
+    #       # enable_thresholds = true;
+    #       # energy_perf_bias = "balance_power";
+    #       # energy_performance_preference = "power";
+    #       governor = "powersave";
+    #       # platform_profile = "low-power";
+    #       # scaling_max_freq = "1000000";
+    #       # scaling_min_freq = "800000";
+    #       # start_threshold = "20";
+    #       # stop_threshold = "80";
+    #       turbo = "auto";
+    #     };
+    #     charger = {
+    #       # energy_perf_bias = "balance_performance";
+    #       # energy_performance_preference = "performance";
+    #       governor = "performance";
+    #       # platform_profile = "performance";
+    #       # scaling_max_freq = "1000000";
+    #       # scaling_min_freq = "800000";
+    #       turbo = "auto";
+    #     };
+    #   };
+    # };
 
     dconf.enable = true;
 
@@ -163,11 +163,6 @@
     # mtr.enable = true;
 
     nano.enable = false;
-
-    # steam = {
-    #   enable = true;
-    #   gamescopeSession.enable = true;
-    # };
   };
 
   security.rtkit.enable = true;
@@ -194,14 +189,14 @@
     };
 
     # https://gitlab.freedesktop.org/upower/power-profiles-daemon
-    power-profiles-daemon.enable = false;
+    # power-profiles-daemon.enable = false;
 
     # Enable CUPS to print documents.
     printing.enable = true;
 
-    # https://wiki.nixos.org/wiki/Laptop#thermald
-    # https://wiki.debian.org/thermald
-    thermald.enable = true;
+    # # https://wiki.nixos.org/wiki/Laptop#thermald
+    # # https://wiki.debian.org/thermald
+    # thermald.enable = true;
 
     xserver = {
       # # Enable touchpad support (enabled default in most desktopManager).
@@ -237,20 +232,6 @@
     };
     validateSopsFiles = false;
   };
-
-  # # https://wiki.nixos.org/wiki/NVIDIA#Multiple_boot_configurations
-  # specialisation.prime_sync_mode.configuration = {
-  #   hardware.nvidia.prime = {
-  #     offload = {
-  #       enable = lib.mkForce false;
-  #       enableOffloadCmd = lib.mkForce false;
-  #     };
-  #     # https://wiki.nixos.org/wiki/NVIDIA#Sync_mode
-  #     # Frames are directly sent from the dgpu output port(hdmi, displayport etc.) to the laptop display. Consumes more power since dgpu always stays on.
-  #     sync.enable = true;
-  #   };
-  #   system.nixos.tags = ["prime_sync_mode"];
-  # };
 
   # This value determines the NixOS release from which the default settings for stateful data, like file locations and database versions on your system were taken. It‘s perfectly fine and recommended to leave this value at the release version of the first install of this system. Before changing this value read the documentation for this option (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
