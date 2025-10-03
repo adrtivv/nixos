@@ -115,16 +115,17 @@
     # wireless.enable = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nix.optimise.automatic = true;
 
   nix.settings = {
-    auto-optimise-store = true;
     experimental-features = [
       "flakes"
       "nix-command"
     ];
   };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # https://wiki.nixos.org/wiki/Laptop#Power_management
   powerManagement.enable = true;
