@@ -5,7 +5,7 @@
   config,
   hostName,
   inputs,
-  # pkgs,
+  pkgs,
   userName,
   ...
 }: {
@@ -14,6 +14,9 @@
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
   };
+
+  # https://wiki.nixos.org/wiki/Chromium#Enabling_native_Wayland_support
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   hardware = {
     # https://wiki.nixos.org/wiki/Bluetooth#Setup
@@ -28,6 +31,10 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#NVIDIA
+        libva-utils
+      ];
     };
     # # https://wiki.nixos.org/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
     # pulseaudio.enable = true;
@@ -54,6 +61,8 @@
         };
       };
     };
+    # https://wiki.nixos.org/wiki/Accelerated_Video_Playback/en#AMD
+    opengl.enable = true;
   };
 
   # Select internationalisation properties.
@@ -173,6 +182,7 @@
     desktopManager.plasma6.enable = true;
     displayManager.sddm.enable = true;
     flatpak.enable = true;
+    fstrim.enable = true;
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;

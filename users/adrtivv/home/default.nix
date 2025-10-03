@@ -47,6 +47,21 @@
       # https://search.nixos.org/options?channel=unstable&query=services.hardware.openrgb
       qbittorrent
       specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default
+      #
+      # specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default.override
+      # {
+      # https://github.com/aclap-dev/vdhcoapp/issues/247
+      # nativeMessagingHosts = [pkgs.vdhcoapp];
+      # policies = {
+      #   Preferences = {
+      #     # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#NVIDIA
+      #     gfx.x11-egl.force-enabled = true;
+      #     media.av1.enabled = true;
+      #     media.hardware-video-decoding.force-enabled = true;
+      #     widget.dmabuf.force-enabled = true;
+      #   };
+      # };
+      # }
       sops
       tokei
       unrar
