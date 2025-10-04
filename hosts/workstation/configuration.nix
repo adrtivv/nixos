@@ -9,10 +9,13 @@
   userName,
   ...
 }: {
-  # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    # Bootloader
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
   };
 
   # https://wiki.nixos.org/wiki/Chromium#Enabling_native_Wayland_support
@@ -28,6 +31,7 @@
         };
       };
     };
+    # https://wiki.nixos.org/wiki/Accelerated_Video_Playback/en#AMD
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -61,8 +65,6 @@
         };
       };
     };
-    # https://wiki.nixos.org/wiki/Accelerated_Video_Playback/en#AMD
-    opengl.enable = true;
   };
 
   # Select internationalisation properties.
@@ -184,6 +186,13 @@
     displayManager.sddm.enable = true;
     flatpak.enable = true;
     fstrim.enable = true;
+
+    # logind = {
+    # Each field can have one of the following variants as values: "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"
+    # lidSwitch = "suspend";
+    # lidSwitchDocked = "ignore";
+    # lidSwitchExternalPower = "suspend";
+    # };
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
