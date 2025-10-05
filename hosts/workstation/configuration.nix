@@ -31,6 +31,8 @@
         };
       };
     };
+    # https://mynixos.com/nixpkgs/option/hardware.cpu.amd.updateMicrocode
+    cpu.amd.updateMicrocode = true;
     # https://wiki.nixos.org/wiki/Accelerated_Video_Playback/en#AMD
     graphics = {
       enable = true;
