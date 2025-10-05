@@ -18,8 +18,35 @@
     };
   };
 
-  # https://wiki.nixos.org/wiki/Chromium#Enabling_native_Wayland_support
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+    # https://yalter.github.io/niri/Nvidia.html
+    etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text = builtins.toJSON {
+      rules = [
+        {
+          pattern = {
+            feature = "procname";
+            matches = "niri";
+          };
+          profile = "Limit Free Buffer Pool On Wayland Compositors";
+        }
+      ];
+      profiles = [
+        {
+          name = "Limit Free Buffer Pool On Wayland Compositors";
+          settings = [
+            {
+              key = "GLVidHeapReuseRatio";
+              value = 0;
+            }
+          ];
+        }
+      ];
+    };
+    # https://home-manager-options.extranix.com/?query=xdg.portal.enable&release=master
+    pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
+    # https://wiki.nixos.org/wiki/Chromium#Enabling_native_Wayland_support
+    sessionVariables.NIXOS_OZONE_WL = "1";
+  };
 
   hardware = {
     # https://wiki.nixos.org/wiki/Bluetooth#Setup
@@ -177,9 +204,14 @@
     # mtr.enable = true;
 
     nano.enable = false;
+    niri.enable = true;
+    # waybar.enable = true;;
   };
-
-  security.rtkit.enable = true;
+  security = {
+    # https://wiki.nixos.org/wiki/Niri#Additional_Setup
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
 
   # List services that you want to enable:
   services = {

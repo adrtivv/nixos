@@ -2,10 +2,10 @@
   description = "Nixos system configuration.";
   # https://nix.dev/manual/nix/2.28/command-ref/new-cli/nix3-flake.html#flake-inputs
   inputs = {
-    auto_cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # auto_cpufreq = {
+    #   url = "github:AdnanHodzic/auto-cpufreq";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # disko = {
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   url = "github:nix-community/disko";
@@ -45,8 +45,7 @@
   in {
     nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
       modules = [
-        ./hosts/workstation
-        inputs.auto_cpufreq.nixosModules.default
+        # inputs.auto_cpufreq.nixosModules.default
         # https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nixos-module
         inputs.home_manager.nixosModules.home-manager
         {
@@ -72,6 +71,7 @@
             users.${userName} = import ./users/adrtivv/home;
           };
         }
+        ./hosts/workstation
       ];
       specialArgs = {
         inherit hostName;

@@ -16,21 +16,6 @@
 
   # https://home-manager-options.extranix.com/?query=home&release=master
   home = {
-    # # link the configuration file in current directory to the specified location in home directory
-    # file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-    # # link all files in `./scripts` to `~/.config/i3/scripts`
-    # file.".config/i3/scripts" = {
-    #   executable = true;  # make all files executable
-    #   recursive = true;   # link recursively
-    #   source = ./scripts;
-    # };
-
-    # # encode the file content in nix configuration file directly
-    # file.".xxx".text = ''
-    #     xxx
-    # '';
-
     homeDirectory = "/home/${specialArgs.userName}";
 
     # Packages that should be installed to the user profile.
@@ -39,33 +24,20 @@
       ffmpeg
       file
       gparted
-      lenovo-legion
+      kdlfmt
       nerd-fonts.jetbrains-mono
       noto-fonts-emoji
       obsidian
       # https://wiki.nixos.org/wiki/OpenRGB
       # https://search.nixos.org/options?channel=unstable&query=services.hardware.openrgb
+      # openrgb
       qbittorrent
-      specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default
-      #
-      # specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default.override
-      # {
-      # https://github.com/aclap-dev/vdhcoapp/issues/247
-      # nativeMessagingHosts = [pkgs.vdhcoapp];
-      # policies = {
-      #   Preferences = {
-      #     # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#NVIDIA
-      #     gfx.x11-egl.force-enabled = true;
-      #     media.av1.enabled = true;
-      #     media.hardware-video-decoding.force-enabled = true;
-      #     widget.dmabuf.force-enabled = true;
-      #   };
-      # };
-      # }
-      sops
+      swaybg
       tokei
       unrar
       vlc
+      # https://yalter.github.io/niri/Important-Software.html#xwayland
+      xwayland-satellite
       ytarchive
     ];
 
@@ -76,56 +48,51 @@
   };
 
   imports = [
-    specialArgs.inputs.sops_nix.homeManagerModules.sops
     ./bash
     ./bat
     ./bottom
     ./broot
     ./direnv
+    ./easyeffects
     ./eza
     ./fastfetch
     ./fd
     ./firefox
     ./foliate
+    ./fuzzel
     ./gh
     ./ghostty
     ./git
     ./gitui
+    ./gnome_keyring
     ./helix
-    ./home-manager
+    ./home_manager
     ./jujutsu
     ./mpv
+    ./niri
     ./nh
     ./plasma
+    ./polkit_gnome
     ./ripgrep
+    ./sops
     ./starship
+    ./swayidle
+    ./swaylock
     ./tealdeer
-    ./zed-editor
+    ./zed_editor
+    ./zen_browser
     ./zoxide
   ];
 
-  # https://home-manager-options.extranix.com/?query=services.easyeffects&release=master
-  services.easyeffects = {
-    enable = false;
-    # preset = "";
+  # https://home-manager-options.extranix.com/?query=xdg.portal&release=master
+  # https://yalter.github.io/niri/Important-Software.html#portals
+  xdg.portal = {
+    configPackages = [
+      pkgs.gnome-session
+    ];
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
   };
-
-  sops = {
-    # Path to where the age private key is to be derived and stored at or an existing age private key is to be found.
-    age.keyFile = "/home/${specialArgs.userName}/.config/sops/age/keys.txt";
-    # Path to where the sops age encrypted secrets can be accessed.
-    defaultSopsFile = ../../../secrets.yaml;
-    secrets = {
-      "users/${specialArgs.userName}/id_ed25519" = {
-        path = "/home/${specialArgs.userName}/.ssh/id_ed25519";
-      };
-    };
-    validateSopsFiles = false;
-  };
-
-  # # set cursor size and dpi for 4k monitor
-  # xresources.properties = {
-  #   "Xcursor.size" = 16;
-  #   "Xft.dpi" = 172;
-  # };
 }
