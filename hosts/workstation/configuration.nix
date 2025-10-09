@@ -10,6 +10,8 @@
   ...
 }: {
   boot = {
+    kernelModules = ["i2c-dev"];
+
     kernelPackages = pkgs.linuxPackages_latest;
     # Bootloader
     loader = {
@@ -258,11 +260,19 @@
   time.timeZone = "Asia/Kolkata";
 
   users = {
+    groups.i2c = {};
+
     # This is required for sops to set the user password during the system activation. It also forces the user's password to only be controllable through this nix configuration.
     mutableUsers = false;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.${userName} = {
-      extraGroups = ["docker" "networkmanager" "wheel"];
+      extraGroups = [
+        "docker"
+        "i2c"
+        "networkmanager"
+        "wheel"
+      ];
+
       hashedPasswordFile = config.sops.secrets."users/${userName}/password_hash".path;
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
