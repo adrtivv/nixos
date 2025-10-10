@@ -20,8 +20,72 @@
     };
   };
 
-  # https://wiki.nixos.org/wiki/Chromium#Enabling_native_Wayland_support
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # https://nix.catppuccin.com/options/main/nixos/catppuccin/
+  catppuccin = {
+    # https://nix.catppuccin.com/options/main/nixos/catppuccin/#catppuccin-accent
+    accent = "blue";
+
+    # https://nix.catppuccin.com/options/main/nixos/catppuccin.cache/#catppuccin-cache.enable
+    cache.enable = true;
+
+    # https://nix.catppuccin.com/options/main/nixos/catppuccin/#catppuccin-enable
+    enable = true;
+
+    # https://nix.catppuccin.com/options/main/nixos/catppuccin/#catppuccin-flavor
+    flavor = "mocha";
+
+    # https://nix.catppuccin.com/options/main/nixos/catppuccin.sddm/
+    sddm = {
+      # https://nix.catppuccin.com/options/main/nixos/catppuccin.sddm/#catppuccin-sddm.font
+      font = "JetBrainsMono Nerd Font";
+
+      # https://nix.catppuccin.com/options/main/nixos/catppuccin.sddm/#catppuccin-sddm.fontSize
+      fontSize = "16";
+    };
+  };
+
+  environment = {
+    # # https://yalter.github.io/niri/Nvidia.html
+    # etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text = builtins.toJSON {
+    #   rules = [
+    #     {
+    #       pattern = {
+    #         feature = "procname";
+
+    #         matches = "niri";
+    #       };
+
+    #       profile = "Limit Free Buffer Pool On Wayland Compositors";
+    #     }
+    #   ];
+
+    #   profiles = [
+    #     {
+    #       name = "Limit Free Buffer Pool On Wayland Compositors";
+
+    #       settings = [
+    #         {
+    #           key = "GLVidHeapReuseRatio";
+
+    #           value = 0;
+    #         }
+    #       ];
+    #     }
+    #   ];
+    # };
+
+    # https://home-manager-options.extranix.com/?query=xdg.portal.enable&release=master
+    pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
+
+    # https://wiki.nixos.org/wiki/Chromium#Enabling_native_Wayland_support
+    sessionVariables.NIXOS_OZONE_WL = "1";
+
+    systemPackages = with pkgs; [
+      bluez
+      ddcutil
+      kdePackages.dolphin
+    ];
+  };
 
   hardware = {
     # https://wiki.nixos.org/wiki/Bluetooth#Setup
@@ -283,5 +347,20 @@
 
   virtualisation.docker.enable = true;
 
+<<<<<<< HEAD
   xdg.portal.enable = true;
+=======
+  # https://yalter.github.io/niri/Important-Software.html#portals
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-termfilechooser];
+
+    wlr = {
+      enable = true;
+    };
+
+    xdgOpenUsePortal = true;
+  };
+>>>>>>> 982f7ff (enable catppuccin nix)
 }

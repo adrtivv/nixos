@@ -1,0 +1,201 @@
+@import "catppuccin_mocha.css";
+
+* {
+	color: @text;
+	font-size: 1.5rem;
+}
+
+#backlight {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+/* #backlight-slider highlight { */
+	/* background-color: @crust; */
+	/* border-color: @crust; */
+/* } */
+
+/* #backlight-slider slider { */
+	/* color: @crust; */
+	/* background-color: @crust; */
+/* } */
+
+/* #backlight-slider trough { */
+	/* background-color: transparent; */
+	/* border-color: @crust; */
+	/* border-radius: 1rem; */
+	/* min-height: 0.6rem; */
+	/* min-width: 10rem; */
+/* } */
+
+#battery {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+/* #battery.charging.critical { */
+/* } */
+
+/* #battery.charging.optimal { */
+/* } */
+
+/* #battery.charging.over_charge { */
+/* } */
+
+/* #battery.charging.under_charge { */
+/* } */
+
+/* #battery.discharging.critical { */
+/* } */
+
+/* #battery.discharging.optimal { */
+/* } */
+
+/* #battery.discharging.over_charge { */
+/* } */
+
+/* #battery.discharging.under_charge { */
+/* } */
+
+/* #battery.plugged.critical { */
+/* } */
+
+/* #battery.plugged.optimal { */
+/* } */
+
+/* #battery.plugged.over_charge { */
+/* } */
+
+/* #battery.plugged.under_charge { */
+/* } */
+
+#bluetooth {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#clock {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#cpu {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#custom-external_backlight {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#idle_inhibitor {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+/* https://github.com/Alexays/Waybar/wiki/Module:-Niri#language */
+/* #language { */
+
+/* } */
+
+#load {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#memory {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+/* .modules-center { */
+/* } */
+
+/* .modules-left { */
+/* } */
+
+/* .modules-right { */
+/* } */
+
+#network {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#privacy {
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#pulseaudio{
+	background-color: @crust;
+	margin: 0.2rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;	
+}
+
+#systemd-failed-units {
+	background-color: @crust;
+	margin: 0.2rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;	
+}
+
+#temperature {	
+	background-color: @crust;
+	/* margin: 0.2rem; */
+	/* padding-left: 0.5rem; */
+	/* padding-right: 0.5rem; */
+}
+
+#temperature.critical {
+	background-color: @crust;
+	margin: 0.2rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;	
+}
+
+/* https://github.com/Alexays/Waybar/wiki/Module:-Niri#window */
+/* #window { */
+/* } */
+
+/* window#waybar.hidden {} */
+
+/* window#waybar.<position> */
+
+/* https://github.com/Alexays/Waybar/wiki/Module:-Niri#workspaces */
+/* #workspaces {} */
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect` */
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+window#waybar {
+	background-color: transparent;
+}
+

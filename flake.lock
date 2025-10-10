@@ -1,12 +1,17 @@
 {
   "nodes": {
+<<<<<<< HEAD
     "auto_cpufreq": {
+=======
+    "catppuccin": {
+>>>>>>> 982f7ff (enable catppuccin nix)
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1758887019,
         "narHash": "sha256-5QDHaIKbmremgFh8Pc9ess59K4HJ5APM8pNgnYzAMno=",
         "owner": "AdnanHodzic",
@@ -17,6 +22,18 @@
       "original": {
         "owner": "AdnanHodzic",
         "repo": "auto-cpufreq",
+=======
+        "lastModified": 1760084311,
+        "narHash": "sha256-YpNNtvA8v28Gd3/PHXCABuBWOzR0K8CyQPga13LxBH0=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "fa3a9d5f80ebfe7f4974bc1939f558690cc56359",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nix",
+>>>>>>> 982f7ff (enable catppuccin nix)
         "type": "github"
       }
     },
@@ -102,7 +119,11 @@
     },
     "root": {
       "inputs": {
+<<<<<<< HEAD
         "auto_cpufreq": "auto_cpufreq",
+=======
+        "catppuccin": "catppuccin",
+>>>>>>> 982f7ff (enable catppuccin nix)
         "home_manager": "home_manager",
         "nixpkgs": "nixpkgs",
         "plasma_manager": "plasma_manager",

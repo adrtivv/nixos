@@ -1,21 +1,38 @@
 {pkgs, ...}: {
+  # https://nix.catppuccin.com/options/main/home/catppuccin.helix/
+  catppuccin.helix = {
+    # https://nix.catppuccin.com/options/main/home/catppuccin.helix/#catppuccin-helix.useItalics
+    useItalics = true;
+  };
+
   # https://home-manager-options.extranix.com/?query=programs.helix&release=master
   programs.helix = {
     defaultEditor = true;
     enable = true;
     extraPackages = with pkgs; [
       alejandra
+
       bash-language-server
+
       biome
+
       docker-compose-language-service
+
       dockerfile-language-server
+
       graphql-language-service-cli
       lldb
+
       markdown-oxide
+
       nixd
+
       rust-analyzer-unwrapped
+
       typescript-language-server
+
       vscode-langservers-extracted
+
       yaml-language-server
     ];
     languages = {
@@ -160,7 +177,8 @@
         # Add the git branch to the status line.
         statusline.left = ["mode" "spinner" "version-control" "file-name"];
       };
-      theme = "catppuccin_mocha";
+
+      # theme = "catppuccin_mocha";
     };
   };
 }

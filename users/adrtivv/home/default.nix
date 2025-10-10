@@ -81,6 +81,7 @@
     ./bat
     ./bottom
     ./broot
+    ./catppuccin
     ./direnv
     ./eza
     ./fastfetch
