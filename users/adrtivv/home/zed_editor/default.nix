@@ -13,6 +13,7 @@
   };
 
   # https://home-manager-options.extranix.com/?query=programs.zed-editor&release=master
+  # https://zed.dev/
   programs.zed-editor = {
     extensions = [
       "basher"
@@ -27,17 +28,21 @@
       "nix"
       "sql"
     ];
+
     extraPackages = with pkgs; [
       alejandra
       markdown-oxide
       nixd
     ];
+
     enable = true;
+
     # package = specialArgs.inputs.nixpkgs_unstable.legacyPackages.${specialArgs.system}.zed-editor;
+
     # # Commented out because empty object results in jq parse error.
     # userKeymaps = {};
-    # For information on how to configure Zed, see the Zed documentation: https://zed.dev/docs/configuring-zed
-    # To see all of Zed's default settings without changing your custom settings, run `zed: open default settings` from the command palette (cmd-shift-p / ctrl-shift-p).
+
+    # For information on how to configure Zed, see the Zed documentation: https://zed.dev/docs/configuring-zed. To see all of Zed's default settings without changing your custom settings, run `zed: open default settings` from the command palette (cmd-shift-p / ctrl-shift-p).
     userSettings = {
       # icon_theme = {
       # dark = "Catppuccin Mocha";
@@ -50,27 +55,34 @@
       languages = {
         Nix = {
           format_on_save = "on";
+
           formatter = {
             external = {
               command = "alejandra";
             };
           };
+
           language_servers = ["nixd" "!nil" "..."];
         };
       };
+
       lsp = {
         biome = {
           # https://github.com/biomejs/biome-zed/blob/main/CONTRIBUTING.md#custom-biome-binary
           binary = {
             arguments = ["lsp-proxy"];
+
             path = lib.getExe pkgs.biome;
           };
         };
       };
+
       project_panel = {
         dock = "right";
       };
+
       relative_line_numbers = true;
+
       soft_wrap = "editor_width";
 
       # theme = {
@@ -82,9 +94,11 @@
       # };
 
       ui_font_size = 16;
+
       vim = {
         default_mode = "helix_normal";
       };
+
       vim_mode = true;
     };
   };

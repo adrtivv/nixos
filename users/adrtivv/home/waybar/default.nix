@@ -1,4 +1,11 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  specialArgs,
+  ...
+}:
+lib.mkIf specialArgs.host_programs.niri.enable
+{
   # https://nix.catppuccin.com/options/main/home/catppuccin.waybar/#catppuccin-waybar.enable
   catppuccin.waybar = {
     # https://nix.catppuccin.com/options/main/home/catppuccin.waybar/#catppuccin-waybar.enable
@@ -12,9 +19,15 @@
   # https://github.com/Alexays/Waybar
   programs.waybar = {
     enable = true;
+
     # settings = {};
+
     systemd.enable = true;
   };
+
+  # systemd.user.services.waybar = {
+  #   Install.WantedBy = ["niri.service"];
+  # };
 
   xdg.configFile."waybar" = {
     recursive = true;

@@ -7,9 +7,8 @@
 
 #backlight {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 /* #backlight-slider highlight { */
@@ -32,9 +31,8 @@
 
 #battery {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 /* #battery.charging.critical { */
@@ -75,37 +73,32 @@
 
 #bluetooth {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #clock {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #cpu {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #custom-external_backlight {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #idle_inhibitor {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/Module:-Niri#language */
@@ -115,16 +108,14 @@
 
 #load {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #memory {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 /* .modules-center { */
@@ -138,44 +129,38 @@
 
 #network {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #privacy {
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #pulseaudio{
 	background-color: @crust;
-	margin: 0.2rem;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;	
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #systemd-failed-units {
 	background-color: @crust;
-	margin: 0.2rem;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;	
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #temperature {	
 	background-color: @crust;
-	/* margin: 0.2rem; */
-	/* padding-left: 0.5rem; */
-	/* padding-right: 0.5rem; */
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 #temperature.critical {
 	background-color: @crust;
-	margin: 0.2rem;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;	
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/Module:-Niri#window */
