@@ -1,8 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     systems.url = "github:nix-systems/default";
   };
+
   outputs = {
     nixpkgs,
     systems,
@@ -16,10 +18,12 @@
           # https://blog.platformatic.dev/handling-environment-variables-in-nodejs#heading-set-nodeenvproduction-for-all-environments
           NODE_ENV = "production";
         };
+
         nativeBuildInputs = with pkgs; [
           nodejs
           pnpm
         ];
+
         packages = with pkgs; [];
       };
     });

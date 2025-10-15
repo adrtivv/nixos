@@ -1,0 +1,337 @@
+// https://github.com/Alexays/Waybar/wiki/Configuration#bar-config
+{
+	// https://github.com/Alexays/Waybar/wiki/Module:-Backlight
+	"backlight": {
+		"format": "    {percent}%",
+
+		"interval": 2
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Battery
+	"battery": {
+		"bat": "BAT1",
+
+		"format-time": "{H} hour(s) {M} minute(s)",
+
+		"format-charging-critical": "󰂏 󰯈  {capacity}%",
+
+		"format-charging-optimal": "󰂏 󰇵  {capacity}%",
+
+		"format-charging-over_charge": "󰂏 󰱪  {capacity}%",
+
+		"format-charging-under_charge": "󰂏   {capacity}%",
+
+		"format-discharging-critical": "󰂌 󰯈  {capacity}%",
+
+		"format-discharging-optimal": "󰂌 󰇵  {capacity}%",
+
+		"format-discharging-over_charge": "󰂌 󰱪  {capacity}%",
+
+		"format-discharging-under_charge": "󰂌   {capacity}%",
+
+		"format-plugged-critical": "󰁹 󰯈  {capacity}%",
+
+		"format-plugged-optimal": "󰁹 󰇵  {capacity}%",
+
+		"format-plugged-over_charge": "󰁹 󰱪  {capacity}%",
+
+		"format-plugged-under_charge": "󰁹   {capacity}%",
+
+		"interval": 10,
+
+		"states": {
+			"critical": 10,
+
+			"optimal": 80,
+
+			"over_charge": 100,
+
+			"under_charge": 20
+		},
+
+		"tooltip": true,
+
+		"tooltip-format": "{timeTo}\n\nPower draw: {power} watt(s)\nCharge cycles the highest-capacity battery has seen: {cycles}\nMaximum charge relative to it's design capacity(health): {health}%"
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Bluetooth
+	"bluetooth": {},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Clock
+	"clock": {
+		// "calendar": {
+		// 	"mode": "month",
+
+		// 	"mode-mon-col": 3,
+
+		//
+		// 	"weeks-pos": "left",
+
+		// 	"on-scroll": 1
+
+		// },
+
+		"format": "   {:%FT%T}",
+
+		"interval": 1,
+
+		"locale": "",
+
+		"timezones": ["Asia/Kolkata", "America/New_York"],
+
+		"tooltip": true,
+
+		"tooltip-format": "{tz_list}"
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-CPU
+	"cpu": {
+		"format": "   use/load: {usage}/{load} %",
+
+		"interval": 10,
+
+		"tooltip": true
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Custom
+	"custom/external_backlight": {
+		// "exec": "~/.config/waybar/external_backlight.sh get",
+
+		// "format": "external backlight: {text}"
+		"format": " 󰍹  10%"
+
+		// "on-click": "~/.config/waybar/external_backlight.sh left_click",
+
+		// "on-click-right": "~/.config/waybar/external_backlight.sh right_click",
+
+		// "on-scroll-down": "~/.config/waybar/external_backlight.sh down",
+
+		// "on-scroll-up": "~/.config/waybar/external_backlight.sh up",
+
+		// "signal": 8
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Disk
+	"disk": {},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Gamemode
+	// "gamemode":{},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Group
+	// 	"group/audio":{},
+
+	// 	"group/monitoring":{},
+
+	// 	"group/display":{},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Idle-Inhibitor
+	"idle_inhibitor": {
+		"format": "idle {icon}",
+
+		"format-icons": {
+			"activated": "",
+
+			"deactivated": ""
+		}
+	},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Image
+	// "image": {},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-JACK
+	// "jack": {},
+
+	"layer": "top",
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Memory
+	"memory": {
+		"format": "   {used} GiB",
+
+		"interval": 30,
+
+		"tooltip": true,
+
+		"tooltip-format": "Total memory: {total} GiB\nUsed memory: {used} GiB\nAvailable memory: {avail} GiB\nTotal swap: {swapTotal} GiB\nUsed swap: {swapUsed} GiB\nAvailable swap: {swapAvail} GiB"
+	},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-MPD
+	// "mpd": {},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-MPRIS
+	// "mpris": {},
+
+	"modules-center": [],
+
+	"modules-left": [
+		"niri/workspaces",
+
+		"clock",
+
+		"cpu",
+
+		"temperature",
+
+		"memory",
+
+		"systemd-failed-units",
+
+		"privacy"
+	],
+
+	"modules-right": [
+		"idle_inhibitor",
+
+		"power-profiles-daemon",
+
+		"bluetooth",
+
+		"network",
+
+		"pulseaudio",
+
+		"backlight",
+
+		"custom/external_backlight",
+
+		"battery"
+	],
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Network
+	"network": {
+		"format-disabled": "󰀂   {ifname}",
+
+		"format-disconnected": "󰯡  {ifname}",
+
+		"format-ethernet": "󰀂   {ifname}",
+
+		"format-linked": "󰀂   {ifname}",
+
+		"format-wifi": "󰀂   {ifname}  {bandwidthDownBytes}  {bandwidthUpBytes}    {signalStrength}",
+
+		"interval": 5,
+
+		"tooltip": true,
+
+		"tooltip-ethernet": "{ifname}:\n\nessid: {essid}\ndownload speed: {bandwidthDownBytes}\nupload speed:{bandwidthUpBytes}",
+
+		"tooltip-format-disabled": "{ifname}:\n\nessid: {essid}\ndownload speed: {bandwidthDownBytes}\nupload speed:{bandwidthUpBytes}",
+
+		"tooltip-format-disconnected": "{ifname}:\n\nessid: {essid}\ndownload speed: {bandwidthDownBytes}\nupload speed:{bandwidthUpBytes}",
+
+		"tooltip-format-linked": "{ifname}:\n\nessid: {essid}\ndownload speed: {bandwidthDownBytes}\nupload speed:{bandwidthUpBytes}",
+
+		"tooltip-format-wifi": "{ifname}:\n\nessid: {essid}\nfrequency: {frequency}\ndownload speed: {bandwidthDownBytes}\nupload speed:{bandwidthUpBytes}\nsignal strength: {signalStrength}\nsignal strength"
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Niri#language
+	"niri/language": {
+		"format": "Language: {long}",
+
+		"format-en": "MURICA"
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Niri#window
+	"niri/window": {
+		"format": "{title}"
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Niri#workspaces
+	"niri/workspaces": {
+		"all-outputs": false,
+
+		"current-only": false,
+
+		"disable-click": false,
+
+		"format": "{value}"
+	},
+
+	// "mode": "hide",
+
+	"position": "top",
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-PowerProfilesDaemon
+	"power-profiles-daemon": {},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Privacy
+	"privacy": {
+		"expand": false,
+
+		"icon-spacing": 4,
+
+		"icon-size": 20,
+
+		"ignore": [
+			{
+				"type": ""
+			}
+		],
+
+		"tooltip": true,
+
+		"tooltip-icon-size": 24,
+
+		"transition-duration": 250,
+
+		"modules": [
+			{ "type": "screenshare" },
+
+			{
+				"type": "audio-in"
+			},
+
+			{
+				"type": "audio-out"
+			}
+		]
+	},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-PulseAudio
+	"pulseaudio": {
+		"format": "   {volume}%"
+	},
+
+	"reload_style_on_change": true,
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Sndio
+	// "sndio": {},
+
+	"start_hidden": false,
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Systemd-failed-units
+	"systemd-failed-units": {
+		"format": "{nr_failed} systemd fail(s)",
+
+		"hide-on-ok": true,
+
+		"system": true,
+
+		"user": true
+	},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Taskbar
+	// "taskbar": {},
+
+	// https://github.com/Alexays/Waybar/wiki/Module:-Temperature
+	"temperature": {
+		"critical-threshold": 90,
+
+		"format": "  {temperatureC}C",
+
+		"format-critical": "󱗗  {temperatureC}C",
+
+		"interval": 10
+	}
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Tray
+	// "tray": {},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-UPower
+	// "upower": {},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-WirePlumber
+	// "wireplumber": {},
+
+	// // https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
+	// "workspaces": {}
+}

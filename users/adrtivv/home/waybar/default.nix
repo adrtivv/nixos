@@ -12,9 +12,15 @@
   # https://github.com/Alexays/Waybar
   programs.waybar = {
     enable = true;
+
     # settings = {};
+
     systemd.enable = true;
   };
+
+  # systemd.user.services.waybar = {
+  #   Install.WantedBy = ["niri.service"];
+  # };
 
   xdg.configFile."waybar" = {
     recursive = true;

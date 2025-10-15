@@ -1,0 +1,137 @@
+/* https://github.com/JakeStanger/ironbar/wiki/styling-guide */
+
+#bar {
+}
+
+#bar #start {
+}
+
+#bar #center {
+}
+
+#bar #end {
+}
+
+#widget-container {
+}
+
+.background {
+}
+
+/* https://github.com/JakeStanger/ironbar/wiki/battery#styling */
+.battery {
+}
+
+.battery.critical {
+}
+
+.battery.optimal {
+}
+
+.battery.over_charge {
+}
+
+.battery.under_charge {
+}
+
+.battery .contents {
+}
+
+.battery .icon {
+}
+
+.battery .label {
+}
+
+/* https://github.com/JakeStanger/ironbar/wiki/bluetooth#styling */
+.bluetooth {
+}
+
+.bluetooth.connected {
+}
+
+.bluetooth.disabled {
+}
+
+.bluetooth.enabled {
+}
+
+.bluetooth.not-found {
+}
+
+.container {
+}
+
+.popup {
+}
+
+/* https://github.com/JakeStanger/ironbar/wiki/battery#styling */
+.popup-battery {
+}
+
+.popup-battery .details {
+}
+
+/* https://github.com/JakeStanger/ironbar/wiki/bluetooth#styling */
+.popup-bluetooth {
+}
+
+.popup-bluetooth .header {
+}
+
+.popup-bluetooth .header .switch {
+}
+
+.popup-bluetooth .header .label {
+}
+
+.popup-bluetooth .disabled {
+}
+
+.popup-bluetooth .disabled .spinner {
+}
+
+.popup-bluetooth .disabled .label {
+}
+
+.popup-bluetooth .devices {
+}
+
+.popup-bluetooth .devices .box {
+}
+
+.popup-bluetooth .devices .box .device {
+}
+
+.popup-bluetooth .devices .box .device .icon-box {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .icon {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .text-icon {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .image {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .status {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .header-label {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .footer-label {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .switch {
+}
+
+.popup-bluetooth .devices .box .device .icon-box .spinner {
+}
+
+.popup-clock {
+}
+
+.widget {
+}

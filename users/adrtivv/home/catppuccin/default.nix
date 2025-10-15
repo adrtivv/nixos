@@ -1,4 +1,4 @@
-{...}: {
+{specialArgs, ...}: {
   # https://nix.catppuccin.com/options/main/home/catppuccin/
   catppuccin = {
     # https://nix.catppuccin.com/options/main/home/catppuccin/#catppuccin-accent
@@ -13,4 +13,8 @@
     # https://nix.catppuccin.com/options/main/home/catppuccin/#catppuccin-flavor
     flavor = "mocha";
   };
+
+  imports = [
+    specialArgs.inputs.catppuccin.homeModules.catppuccin
+  ];
 }

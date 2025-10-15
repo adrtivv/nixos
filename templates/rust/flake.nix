@@ -1,8 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     systems.url = "github:nix-systems/default";
   };
+
   outputs = {
     nixpkgs,
     systems,
@@ -16,6 +18,7 @@
           # Required by rust-analyzer.
           RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
         };
+
         nativeBuildInputs = with pkgs; [
           cargo
           clippy
@@ -23,6 +26,7 @@
           rustc
           rustfmt
         ];
+
         packages = with pkgs; [];
       };
     });
