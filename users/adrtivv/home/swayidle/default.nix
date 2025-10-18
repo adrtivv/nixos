@@ -1,10 +1,4 @@
-{
-  lib,
-  specialArgs,
-  ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable
-{
+{...}: {
   # https://home-manager-options.extranix.com/?query=services.swayidle&release=master
   # https://github.com/swaywm/swayidle
   services.swayidle = let

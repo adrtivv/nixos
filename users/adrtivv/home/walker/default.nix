@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  specialArgs,
-  ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable
-{
+{config, ...}: {
   # https://home-manager-options.extranix.com/?query=services.walker&release=master
   # https://github.com/abenz1267/walker
   services.walker = {

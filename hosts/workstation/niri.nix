@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment = {
     # # https://yalter.github.io/niri/Nvidia.html
     # etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text = builtins.toJSON {
@@ -43,9 +47,21 @@
     ];
   };
 
+  imports = [inputs.niri.nixosModules.niri];
+
+  # https://github.com/sodiboo/niri-flake?tab=readme-ov-file#using-niri-unstable
+  # https://github.com/sodiboo/niri-flake/blob/main/docs.md#overlaysniri
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
+
   # https://wiki.nixos.org/wiki/Niri#Configuration
   # https://github.com/YaLTeR/niri
-  programs.niri.enable = true;
+  programs.niri = {
+    # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirienable
+    enable = true;
+
+    # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsniripackage
+    package = pkgs.niri-stable;
+  };
 
   services = {
     # Enable touchpad support (enabled by default in most desktop environements.).
@@ -61,5 +77,14 @@
     # };
 
     udev.packages = [pkgs.ddcutil];
+  };
+
+  # https://yalter.github.io/niri/Important-Software.html#portals
+  xdg.portal = {
+    wlr = {
+      enable = true;
+    };
+
+    xdgOpenUsePortal = true;
   };
 }

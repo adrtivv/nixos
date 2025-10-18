@@ -1,10 +1,4 @@
-{
-  lib,
-  specialArgs,
-  ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable
-{
+{...}: {
   # https://nix.catppuccin.com/options/main/home/catppuccin.swaync/#catppuccin-swaync.enable
   catppuccin.swaync = {
     font = "JetBrainsMono Nerd Font";

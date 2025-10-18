@@ -52,6 +52,12 @@
 
     # nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    niri = {
+      inputs.nixpkgs.follows = "nixpkgs";
+
+      url = "github:sodiboo/niri-flake";
+    };
+
     plasma_manager = {
       inputs.home-manager.follows = "home_manager";
 
@@ -96,6 +102,8 @@
         # https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nixos-module
         inputs.home_manager.nixosModules.home-manager
 
+        # inputs.niri.nixosModules.niri
+
         ({config, ...}: {
           home-manager = {
             # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.backupFileExtension
@@ -129,6 +137,8 @@
             users.${user_name} = {
               imports = [
                 inputs.catppuccin.homeModules.catppuccin
+
+                # inputs.niri.homeModules.niri
 
                 inputs.dank_material_shell.homeModules.dankMaterialShell.default
 

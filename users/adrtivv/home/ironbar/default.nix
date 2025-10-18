@@ -1,12 +1,8 @@
 {
   config,
-  lib,
   pkgs,
-  specialArgs,
   ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable
-{
+}: {
   # https://search.nixos.org/packages?channel=unstable&show=ironbar&query=ironbar
   # https://github.com/JakeStanger/ironbar
   home.packages = [

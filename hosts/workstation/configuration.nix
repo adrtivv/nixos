@@ -344,14 +344,7 @@
 
   virtualisation.docker.enable = true;
 
-  # https://yalter.github.io/niri/Important-Software.html#portals
   xdg.portal = {
     enable = true;
-
-    wlr = {
-      enable = true;
-    };
-
-    xdgOpenUsePortal = true;
   };
 }

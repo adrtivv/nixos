@@ -1,13 +1,17 @@
 {
   config,
   lib,
+  pkgs,
   specialArgs,
   ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable {
-  xdg.configFile."niri" = {
-    recursive = true;
+}: {
+  imports = [
+    specialArgs.inputs.niri.homeModules.niri
+  ];
 
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/users/adrtivv/home/niri/.config/";
-  };
+  # xdg.configFile."niri" = {
+  #   recursive = true;
+
+  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/users/adrtivv/home/niri/.config/";
+  # };
 }

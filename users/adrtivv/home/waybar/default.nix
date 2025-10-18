@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  specialArgs,
-  ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable
-{
+{config, ...}: {
   # https://nix.catppuccin.com/options/main/home/catppuccin.waybar/#catppuccin-waybar.enable
   catppuccin.waybar = {
     # https://nix.catppuccin.com/options/main/home/catppuccin.waybar/#catppuccin-waybar.enable

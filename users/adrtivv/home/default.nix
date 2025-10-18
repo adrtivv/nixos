@@ -100,7 +100,7 @@
 
     ./catppuccin
 
-    ./dank_material_shell
+    # ./dank_material_shell
 
     ./direnv
 
@@ -142,7 +142,7 @@
 
     ./nh
 
-    # ./niri
+    ./niri
 
     ./plasma
 

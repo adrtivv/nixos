@@ -1,10 +1,4 @@
-{
-  lib,
-  specialArgs,
-  ...
-}:
-lib.mkIf specialArgs.host_programs.niri.enable
-{
+{...}: {
   # https://home-manager-options.extranix.com/?query=programs.eww&release=master
   # https://github.com/elkowar/eww
   programs.eww = {
