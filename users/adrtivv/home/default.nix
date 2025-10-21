@@ -24,10 +24,6 @@
 
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
-      # https://search.nixos.org/packages?channel=unstable&show=brave&query=brave
-      # https://github.com/brave/brave-browser
-      brave
-
       # https://search.nixos.org/packages?channel=unstable&show=ffmpeg_8-full&query=ffmpeg_8-full
       # https://www.ffmpeg.org/
       ffmpeg_8-full
@@ -95,6 +91,8 @@
 
     ./bottom
 
+    ./brave
+
     ./broot
 
     ./catppuccin
@@ -142,8 +140,6 @@
     ./starship
 
     ./tealdeer
-
-    ./walker
 
     ./zed_editor
 

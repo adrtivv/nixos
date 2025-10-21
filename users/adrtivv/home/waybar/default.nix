@@ -15,7 +15,7 @@
 
     # settings = {};
 
-    systemd.enable = true;
+    # systemd.enable = true;
   };
 
   # systemd.user.services.waybar = {

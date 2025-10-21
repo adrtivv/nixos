@@ -29,13 +29,13 @@
         hotkey-overlay.title = "Run an application: walker";
       };
 
-      "Super+Alt+L" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn = lib.getExe pkgs.swaylock;
+      # "Super+Alt+L" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn = lib.getExe pkgs.swaylock;
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnamehotkey-overlaytitle
-        hotkey-overlay.title = "Lock the screen: swaylock";
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnamehotkey-overlaytitle
+      #   hotkey-overlay.title = "Lock the screen: swaylock";
+      # };
 
       "Super+Alt+S" = {
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
@@ -45,37 +45,37 @@
         allow-when-locked = true;
       };
 
-      "XF86AudioLowerVolume" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn-sh = "wpctl set-volume @ DEFAULT_AUDIO_SINK@ 0.1-";
+      # "XF86AudioLowerVolume" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn-sh = "wpctl set-volume @ DEFAULT_AUDIO_SINK@ 0.1-";
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
-        allow-when-locked = true;
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
+      #   allow-when-locked = true;
+      # };
 
-      "XF86AudioRaiseVolume" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn-sh = "wpctl set-volume @ DEFAULT_AUDIO_SINK@ 0.1+";
+      # "XF86AudioRaiseVolume" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn-sh = "wpctl set-volume @ DEFAULT_AUDIO_SINK@ 0.1+";
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
-        allow-when-locked = true;
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
+      #   allow-when-locked = true;
+      # };
 
-      "XF86AudioMute" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn-sh = "wpctl set-mute @ DEFAULT_AUDIO_SINK@ toggle";
+      # "XF86AudioMute" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn-sh = "wpctl set-mute @ DEFAULT_AUDIO_SINK@ toggle";
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
-        allow-when-locked = true;
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
+      #   allow-when-locked = true;
+      # };
 
-      "XF86AudioMicMute" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn-sh = "wpctl set-mute @ DEFAULT_AUDIO_SOURCE@ toggle";
+      # "xf86audiomicmute" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn-sh = "wpctl set-mute @ default_audio_source@ toggle";
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
-        allow-when-locked = true;
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
+      #   allow-when-locked = true;
+      # };
 
       "XF86AudioPlay" = {
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
@@ -109,21 +109,21 @@
         allow-when-locked = true;
       };
 
-      "XF86MonBrightnessDown" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn = "brightnessctl --class=backlight set 5%-";
+      # "XF86MonBrightnessDown" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn = "brightnessctl --class=backlight set 5%-";
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
-        allow-when-locked = true;
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
+      #   allow-when-locked = true;
+      # };
 
-      "XF86MonBrightnessUp" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action.spawn = "brightnessctl --class=backlight set 5%+";
+      # "XF86MonBrightnessUp" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action.spawn = "brightnessctl --class=backlight set 5%+";
 
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
-        allow-when-locked = true;
-      };
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameallow-when-locked
+      #   allow-when-locked = true;
+      # };
 
       "Mod+O" = {
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
@@ -553,10 +553,10 @@
         action = config.lib.niri.actions.consume-or-expel-window-right;
       };
 
-      "Mod+Comma" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action = config.lib.niri.actions.consume-window-into-column;
-      };
+      # "Mod+Comma" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action = config.lib.niri.actions.consume-window-into-column;
+      # };
 
       "Mod+Period" = {
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
@@ -623,10 +623,10 @@
         action.set-window-height = "+10%";
       };
 
-      "Mod+V" = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-        action = config.lib.niri.actions.toggle-window-floating;
-      };
+      # "Mod+V" = {
+      #   # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+      #   action = config.lib.niri.actions.toggle-window-floating;
+      # };
 
       "Mod+Shift+V" = {
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction

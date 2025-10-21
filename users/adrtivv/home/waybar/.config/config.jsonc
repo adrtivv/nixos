@@ -248,7 +248,7 @@
 
 	// "mode": "hide",
 
-	"position": "top",
+	"position": "bottom",
 
 	// https://github.com/Alexays/Waybar/wiki/Module:-PowerProfilesDaemon
 	"power-profiles-daemon": {},

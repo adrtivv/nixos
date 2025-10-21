@@ -25,7 +25,9 @@
 
     # ../brightnessctl
 
-    # ../dank_material_shell
+    ../dank_material_shell
+
+    ../dank_material_shell/niri.nix
 
     # ../eww
 
@@ -33,15 +35,17 @@
 
     # ../network_manager_applet
 
-    ../swayidle
+    # ../swayidle
 
-    ../swaylock
+    # ../swaylock
 
-    ../swaync
+    # ../swaync
 
     # ../swayosd
 
     # ../swww
+
+    # ../walker
 
     # ../waybar
 
