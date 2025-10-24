@@ -37,8 +37,13 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
 
     #   url = "github:nix-community/disko";
-
     # };
+
+    flake_parts = {
+      inputs.nixpkgs.follows = "nixpkgs";
+
+      url = "github:hercules-ci/flake-parts";
+    };
 
     home_manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,93 +84,29 @@
     };
   };
 
-  # https://nixos.wiki/wiki/Flakes#Output_schema
-  outputs = {
-    plasma_manager,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    email_address = "adrtivv@gmail.com";
+  outputs = {flake_parts, ...} @ inputs:
+    flake_parts.lib.mkFlake {inherit inputs;} ({
+        config,
+        withSystem,
+        moduleWithSystem,
+        ...
+      } @ top: {
+        imports = [
+          ./home_modules
 
-    host_name = "workstation";
+          ./nixos_configurations
 
-    system = "x86_64-linux";
+          ./nixos_modules
 
-    user_name = "adrtivv";
-  in {
-    nixosConfigurations.${host_name} = nixpkgs.lib.nixosSystem {
-      modules = [
-        # https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nixos-module
-        inputs.home_manager.nixosModules.home-manager
+          ./templates
+        ];
 
-        {
-          home-manager = {
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.backupFileExtension
-            backupFileExtension = "backup";
+        perSystem = {
+          pkgs,
+          self',
+          ...
+        }: {};
 
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.extraSpecialArgs
-            extraSpecialArgs = {
-              inherit email_address;
-
-              inherit inputs;
-
-              inherit system;
-
-              inherit user_name;
-            };
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.sharedModules
-            sharedModules = [
-              plasma_manager.homeModules.plasma-manager
-            ];
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.useGlobalPkgs
-            useGlobalPkgs = true;
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.useUserPackages
-            useUserPackages = true;
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.users
-            users.${user_name} = {
-              imports = [
-                ./users/adrtivv/home
-              ];
-            };
-          };
-        }
-
-        ./hosts/workstation
-      ];
-
-      specialArgs = {
-        inherit host_name;
-
-        inherit inputs;
-
-        inherit system;
-
-        inherit user_name;
-      };
-    };
-
-    templates = {
-      nix = {
-        description = "";
-
-        path = ./templates/nix;
-      };
-
-      node = {
-        description = "";
-
-        path = ./templates/node;
-      };
-
-      rust = {
-        description = "";
-
-        path = ./templates/rust;
-      };
-    };
-  };
+        systems = ["x86_64-linux"];
+      });
 }
