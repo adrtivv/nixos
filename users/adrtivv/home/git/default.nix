@@ -4,12 +4,14 @@
   programs.git = {
     enable = true;
 
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
+
+      user = {
+        email = specialArgs.email_address;
+
+        name = specialArgs.user_name;
+      };
     };
-
-    userEmail = specialArgs.email_address;
-
-    userName = specialArgs.user_name;
   };
 }
