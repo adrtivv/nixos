@@ -27,6 +27,12 @@
       url = "github:AvengeMedia/danklinux";
     };
 
+    dank_material_shell_plugins = {
+      flake = false;
+
+      url = "github:AvengeMedia/dms-plugins";
+    };
+
     dgop = {
       inputs.nixpkgs.follows = "nixpkgs";
 
@@ -37,8 +43,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
 
     #   url = "github:nix-community/disko";
-
     # };
+
+    flake_parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
 
     home_manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,9 +56,12 @@
       url = "github:nix-community/home-manager";
     };
 
+    import_tree = {
+      url = "github:vic/import-tree";
+    };
+
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11"
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     # nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     niri = {
@@ -72,6 +84,10 @@
       url = "github:mic92/sops-nix";
     };
 
+    nix_systems = {
+      url = "github:nix-systems/default";
+    };
+
     zen_browser = {
       inputs.nixpkgs.follows = "nixpkgs";
 
@@ -80,92 +96,12 @@
   };
 
   # https://nixos.wiki/wiki/Flakes#Output_schema
-  outputs = {
-    plasma_manager,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    email_address = "adrtivv@gmail.com";
+  outputs = inputs:
+    inputs.flake_parts.lib.mkFlake {inherit inputs;} ({...}: {
+      imports = [
+        inputs.flake_parts.flakeModules.modules
 
-    host_name = "workstation";
-
-    system = "x86_64-linux";
-
-    user_name = "adrtivv";
-  in {
-    nixosConfigurations.${host_name} = nixpkgs.lib.nixosSystem {
-      modules = [
-        # https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nixos-module
-        inputs.home_manager.nixosModules.home-manager
-
-        {
-          home-manager = {
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.backupFileExtension
-            backupFileExtension = "backup";
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.extraSpecialArgs
-            extraSpecialArgs = {
-              inherit email_address;
-
-              inherit inputs;
-
-              inherit system;
-
-              inherit user_name;
-            };
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.sharedModules
-            sharedModules = [
-              plasma_manager.homeModules.plasma-manager
-            ];
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.useGlobalPkgs
-            useGlobalPkgs = true;
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.useUserPackages
-            useUserPackages = true;
-
-            # https://nix-community.github.io/home-manager/nixos-options.xhtml#nixos-opt-home-manager.users
-            users.${user_name} = {
-              imports = [
-                ./users/adrtivv/home
-              ];
-            };
-          };
-        }
-
-        ./hosts/workstation
+        (inputs.import_tree ./modules)
       ];
-
-      specialArgs = {
-        inherit host_name;
-
-        inherit inputs;
-
-        inherit system;
-
-        inherit user_name;
-      };
-    };
-
-    templates = {
-      nix = {
-        description = "";
-
-        path = ./templates/nix;
-      };
-
-      node = {
-        description = "";
-
-        path = ./templates/node;
-      };
-
-      rust = {
-        description = "";
-
-        path = ./templates/rust;
-      };
-    };
-  };
+    });
 }

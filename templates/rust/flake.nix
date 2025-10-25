@@ -1,34 +1,34 @@
 {
   inputs = {
+    flake_parts = {
+      inputs.nixpkgs.follows = "nixpkgs";
+
+      url = "github:hercules-ci/flake-parts";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    systems.url = "github:nix-systems/default";
   };
 
-  outputs = {
-    nixpkgs,
-    systems,
-    ...
-  }: let
-    forEachSystem = arg_fn: nixpkgs.lib.genAttrs (import systems) (system: arg_fn nixpkgs.legacyPackages.${system});
-  in {
-    devShells = forEachSystem (pkgs: {
-      default = pkgs.mkShell {
-        env = {
-          # Required by rust-analyzer.
-          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
+  # https://nixos.wiki/wiki/Flakes#Output_schema
+  outputs = inputs:
+    inputs.flake_parts.lib.mkFlake {inherit inputs;} ({...} @ top: {
+      perSystem = {pkgs, ...}: {
+        devShells.default = pkgs.mkshell {
+          env = {
+            # required by rust-analyzer.
+            rust_src_path = pkgs.rustplatform.rustlibsrc;
+          };
+
+          nativebuildinputs = with pkgs; [
+            cargo
+            clippy
+            rust-analyzer
+            rustc
+            rustfmt
+          ];
         };
-
-        nativeBuildInputs = with pkgs; [
-          cargo
-          clippy
-          rust-analyzer
-          rustc
-          rustfmt
-        ];
-
-        packages = with pkgs; [];
       };
+
+      systems = ["x86_64-linux"];
     });
-  };
 }
