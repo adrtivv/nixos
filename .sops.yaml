@@ -1,9 +1,11 @@
 keys:
-  - &hosts__workstation age1lu5rg87yxy6ypmldz99me3093nkyezwcpwdth3d2dkj0pd6hzfqqju6a4v
+  - &hosts__desktop age1vd7jvq0gfgl9se46gs3l9ga6cswynw22z9xg0sdgnwf2da67yqhqjt7em5
+  - &hosts__laptop age1lu5rg87yxy6ypmldz99me3093nkyezwcpwdth3d2dkj0pd6hzfqqju6a4v
   - &users__adrtivv age1zgu35qey2dxgaez2atvtkg9pwkqy3qnnns0xq3t9qm7xunzgjs6qrx9xhw
 creation_rules:
   - key_groups:
       - age:
-          - *hosts__workstation
+          - *hosts__desktop
+          - *hosts__laptop
           - *users__adrtivv
     path_regex: secrets.yaml$
