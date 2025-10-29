@@ -18,16 +18,16 @@
       # https://plugins.danklinux.com/dank-hooks.html
       plugins = {
         # https://plugins.danklinux.com/dank-actions.html
-        "Dank Actions".src = "${inputs.dank_material_shell}/PLUGINS/Dank Actions";
+        "Dank Actions".src = "${inputs.dank_material_shell_plugins}/DankActions";
 
         # https://plugins.danklinux.com/dank-battery-alerts.html
-        "Dank Battery Alerts".src = "${inputs.dank_material_shell}/PLUGINS/Dank Battery Alerts";
+        "Dank Battery Alerts".src = "${inputs.dank_material_shell_plugins}/DankBatteryAlerts";
 
         # https://plugins.danklinux.com/dank-hooks.html
-        "Dank Hooks".src = "${inputs.dank_material_shell}/PLUGINS/Dank Hooks";
+        "Dank Hooks".src = "${inputs.dank_material_shell_plugins}/DankHooks";
 
         # https://plugins.danklinux.com/dank-battery-alerts.html
-        "Dank Pomodoro Timer".src = "${inputs.dank_material_shell}/PLUGINS/Dank Pomodoro Timer";
+        "Dank Pomodoro Timer".src = "${inputs.dank_material_shell_plugins}/DankPomodoroTimer";
       };
     };
   };

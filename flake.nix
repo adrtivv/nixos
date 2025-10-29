@@ -27,6 +27,12 @@
       url = "github:AvengeMedia/danklinux";
     };
 
+    dank_material_shell_plugins = {
+      flake = false;
+
+      url = "github:AvengeMedia/dms-plugins";
+    };
+
     dgop = {
       inputs.nixpkgs.follows = "nixpkgs";
 
