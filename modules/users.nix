@@ -282,6 +282,8 @@
       imports = [
         common
 
+        config.flake.modules.homeManager.gaming
+
         config.flake.modules.homeManager.gh
 
         config.flake.modules.homeManager.git

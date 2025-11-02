@@ -55,6 +55,8 @@
 
       config.flake.modules.nixos.catppuccin
 
+      config.flake.modules.nixos.gaming
+
       config.flake.modules.nixos.home_manager
 
       config.flake.modules.nixos.kde_plasma
