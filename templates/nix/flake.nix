@@ -1,12 +1,8 @@
 {
   inputs = {
-    flake_parts = {
-      inputs.nixpkgs.follows = "nixpkgs";
+    flake_parts.url = "github:hercules-ci/flake-parts";
 
-      url = "github:hercules-ci/flake-parts";
-    };
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   };
 
   # https://nixos.wiki/wiki/Flakes#Output_schema

@@ -162,7 +162,8 @@ in {
     ];
 
     # https://wiki.nixos.org/wiki/Laptop#Power_management
-    powerManagement.enable = true;
+    # # Currently results in less battery life.
+    # powerManagement.enable = true;
 
     networking.hostName = "laptop";
 

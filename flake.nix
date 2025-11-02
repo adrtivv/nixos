@@ -45,9 +45,7 @@
     #   url = "github:nix-community/disko";
     # };
 
-    flake_parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
+    flake_parts.url = "github:hercules-ci/flake-parts";
 
     home_manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,6 +100,8 @@
         inputs.flake_parts.flakeModules.modules
 
         (inputs.import_tree ./modules)
+
+        ./templates
       ];
     });
 }
