@@ -175,7 +175,7 @@
           scale = 1;
         };
 
-        eDP-2 = {
+        eDP-1 = {
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamefocus-at-startup
           focus-at-startup = true;
 
