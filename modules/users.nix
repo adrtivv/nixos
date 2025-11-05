@@ -101,6 +101,8 @@
 
         config.flake.modules.homeManager.niri
 
+        config.flake.modules.homeManager.obs_studio
+
         config.flake.modules.homeManager.ripgrep
 
         config.flake.modules.homeManager.sops
