@@ -35,8 +35,13 @@
       hotkey-overlay.skip-at-startup = false;
 
       input = {
-        # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsinputfocus-follows-mousemax-scroll-amount
-        focus-follows-mouse.max-scroll-amount = "0%";
+        focus-follows-mouse = {
+          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsinputfocus-follows-mouseenable
+          enable = true;
+
+          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsinputfocus-follows-mousemax-scroll-amount
+          max-scroll-amount = "0%";
+        };
 
         touchpad = {
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsinputtouchpadnatural-scroll
@@ -71,7 +76,7 @@
           };
 
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingswindow-rulesborderwidth
-          width = 4;
+          width = 1;
         };
 
         center-focused-column = "never";
@@ -98,11 +103,11 @@
           };
 
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutfocus-ringwidth
-          width = 4;
+          width = 1;
         };
 
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutgaps
-        gaps = 16;
+        gaps = 1;
 
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutpreset-column-widths
         preset-column-widths = [
@@ -121,26 +126,6 @@
             proportion = 0.66667;
           }
         ];
-
-        shadow = {
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutshadowcolor
-          color = "#0007";
-
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutshadowoffset
-          offset = {
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutshadowoffsetx
-            x = 0;
-
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutshadowoffsety
-            y = 5;
-          };
-
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutshadowsoftness
-          softness = 30;
-
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingslayoutshadowspread
-          spread = 5;
-        };
       };
 
       # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputs

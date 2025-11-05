@@ -8,18 +8,35 @@
   # https://nixos.wiki/wiki/Flakes#Output_schema
   outputs = inputs:
     inputs.flake_parts.lib.mkFlake {inherit inputs;} ({...} @ top: {
-      perSystem = {pkgs, ...}: {
-        devShells.default = pkgs.mkShell {
-          env = {
-            # https://blog.platformatic.dev/handling-environment-variables-in-nodejs#heading-set-nodeenvproduction-for-all-environments
-            NODE_ENV = "production";
-          };
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
 
-          nativeBuildInputs = with pkgs; [
+          config = {
+            allowUnfree = true;
+            # Optional but common: allow ALL unfree packages (not just an allowlist)
+            allowUnfreePredicate = _: true;
+          };
+        };
+
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
             nodejs
+
             pnpm
           ];
+
+          # https://blog.platformatic.dev/handling-environment-variables-in-nodejs#heading-set-nodeenvproduction-for-all-environments
+          env.NODE_ENV = "production";
+
+          nativeBuildInputs = [pkgs.pkg-config];
         };
+
+        formatter = pkgs.alejandra;
       };
 
       systems = ["x86_64-linux"];

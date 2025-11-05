@@ -8,9 +8,27 @@
   # https://nixos.wiki/wiki/Flakes#Output_schema
   outputs = inputs:
     inputs.flake_parts.lib.mkFlake {inherit inputs;} ({...} @ top: {
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+
+          config = {
+            allowUnfree = true;
+            # Optional but common: allow ALL unfree packages (not just an allowlist)
+            allowUnfreePredicate = _: true;
+          };
+        };
+
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [pkgs.nixd];
+          buildInputs = with pkgs; [
+            nixd
+          ];
+
+          nativeBuildInputs = [pkgs.pkg-config];
         };
 
         formatter = pkgs.alejandra;
