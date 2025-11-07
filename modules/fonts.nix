@@ -21,7 +21,7 @@
       nerd-fonts.jetbrains-mono
 
       # https://search.nixos.org/packages?channel=unstable&show=noto-fonts-emoji&query=noto-fonts-emoji
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
   };
 }

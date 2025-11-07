@@ -2,7 +2,7 @@
   flake.modules.homeManager.zen_browser = {pkgs, ...}: {
     home.packages = [
       # https://github.com/0xc000022070/zen-browser-flake
-      inputs.zen_browser.packages.${pkgs.system}.default
+      inputs.zen_browser.packages."${pkgs.stdenv.hostPlatform.system}".default
       # specialArgs.inputs.zen_browser.packages.${specialArgs.system}.default.override
       # {
       #   # https://github.com/aclap-dev/vdhcoapp/issues/247
