@@ -33,6 +33,10 @@
           # https://github.com/qbittorrent/qBittorrent
           qbittorrent
 
+          # https://search.nixos.org/packages?channel=unstable&show=telegram-desktop&query=telegram-desktop
+          # https://desktop.telegram.org/
+          telegram-desktop
+
           # https://search.nixos.org/packages?channel=unstable&show=tokei&query=tokei
           # https://github.com/XAMPPRocky/tokei
           tokei
@@ -105,7 +109,7 @@
 
         config.flake.modules.homeManager.ripgrep
 
-        config.flake.modules.homeManager.satty
+        # config.flake.modules.homeManager.satty
 
         config.flake.modules.homeManager.sops
 

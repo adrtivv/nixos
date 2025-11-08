@@ -4,6 +4,12 @@
     # https://github.com/Satty-org/Satty
     programs.satty = {
       enable = true;
+
+      settings = {
+        general = {
+          fullscreen = true;
+        };
+      };
     };
   };
 }
