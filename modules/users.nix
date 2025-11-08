@@ -105,6 +105,8 @@
 
         config.flake.modules.homeManager.ripgrep
 
+        config.flake.modules.homeManager.satty
+
         config.flake.modules.homeManager.sops
 
         config.flake.modules.homeManager.starship
