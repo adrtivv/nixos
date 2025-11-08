@@ -55,6 +55,8 @@
 
       config.flake.modules.nixos.catppuccin
 
+      # config.flake.modules.nixos.docker
+
       config.flake.modules.nixos.gaming
 
       config.flake.modules.nixos.home_manager
@@ -126,8 +128,6 @@
     system.stateVersion = "25.05"; # Did you read the comment?
 
     time.timeZone = "Asia/Kolkata";
-
-    virtualisation.docker.enable = true;
   };
 in {
   flake.modules.nixos.hosts__desktop = {...}: {
