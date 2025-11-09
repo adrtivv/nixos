@@ -42,9 +42,11 @@
 
         rust-analyzer-unwrapped
 
-        typescript-language-server
+        # typescript-language-server
 
         vscode-langservers-extracted
+
+        vtsls
 
         yaml-language-server
       ];
@@ -185,6 +187,26 @@
             args = ["--config={\"formatting\":{\"command\":[\"alejandra\"]}}" "--inlay-hints=true"];
 
             command = "nixd";
+          };
+
+          typescript-language-server = {
+            args = ["--stdio"];
+
+            command = "vtsls";
+
+            config = {
+              hostInfo = "helix";
+
+              typescript = {
+                autoUseWorkspaceTsdk = true;
+
+                suggest.completeFunctionCalls = true;
+
+                updateImportsOnFileMove.enable = "always";
+
+                updateImportsOnFileSave.enabled = "always";
+              };
+            };
           };
         };
       };
