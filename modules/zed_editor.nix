@@ -19,21 +19,35 @@
     programs.zed-editor = {
       extensions = [
         "basher"
+
         "biome"
+
         "catppuccin"
+
         "catppuccin-icons"
+
         "docker-compose"
+
         "dockerfile"
+
         "git-firefly"
+
         "graphql"
+
         "markdown-oxide"
+
         "nix"
+
         "sql"
       ];
 
       extraPackages = with pkgs; [
         alejandra
+
         markdown-oxide
+
+        package-version-server
+
         nixd
       ];
 
