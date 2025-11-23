@@ -35,14 +35,14 @@
 
     programs.gamemode.enable = true;
 
-    programs.steam = {
-      enable = true;
+    # programs.steam = {
+    #   enable = true;
 
-      extraPackages = [
-        pkgs.mangohud
-      ];
+    #   extraPackages = [
+    #     pkgs.mangohud
+    #   ];
 
-      gamescopeSession.enable = true;
-    };
+    #   gamescopeSession.enable = true;
+    # };
   };
 }
