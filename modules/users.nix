@@ -115,6 +115,8 @@
 
         config.flake.modules.homeManager.starship
 
+        config.flake.modules.homeManager.yazi
+
         config.flake.modules.homeManager.zen_browser
 
         config.flake.modules.homeManager.zoxide
