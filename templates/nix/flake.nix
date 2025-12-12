@@ -2,7 +2,7 @@
   inputs = {
     flake_parts.url = "github:hercules-ci/flake-parts";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
   };
 
   # https://nixos.wiki/wiki/Flakes#Output_schema

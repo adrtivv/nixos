@@ -1,4 +1,4 @@
-{...}: {
+# {...}: {
   # flake.modules.homeManager.ironbar = {pkgs, ...}: {
   #   # https://search.nixos.org/packages?channel=unstable&show=ironbar&query=ironbar
   #   # https://github.com/JakeStanger/ironbar
@@ -424,4 +424,4 @@
   #   '';
 
   # };
-}
+# }

@@ -1,4 +1,4 @@
-{inputs, ...}: {
+# {inputs, ...}: {
   # flake.modules.nixos.auto_cpufreq = { ...}: {
   #   # https://wiki.nixos.org/wiki/Laptop#auto-cpufreq
   #   # https://github.com/AdnanHodzic/auto-cpufreq
@@ -48,4 +48,4 @@
 
   #   imports = [inputs.auto_cpufreq.nixosModules.default];
   # };
-}
+# }

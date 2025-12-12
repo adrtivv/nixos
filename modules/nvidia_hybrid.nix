@@ -8,8 +8,7 @@
       powerManagement = {
         enable = true;
 
-        # # Currently doesn't work properly as it turns dgpu off permanently requiring a restart to turn it back on.
-        # finegrained = true;
+        finegrained = true;
       };
 
       # https://wiki.nixos.org/wiki/NVIDIA#Offload_mode

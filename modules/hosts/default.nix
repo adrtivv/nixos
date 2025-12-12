@@ -1,7 +1,7 @@
 {config, ...}: let
   common = {pkgs, ...}: {
     boot = {
-      kernelPackages = pkgs.linuxPackages_6_17;
+      kernelPackages = pkgs.linuxPackages_6_18;
 
       # Bootloader
       loader = {
@@ -161,8 +161,8 @@ in {
       config.flake.modules.nixos.nvidia_hybrid
     ];
 
-    # # https://wiki.nixos.org/wiki/Laptop#Power_management
-    # powerManagement.enable = true;
+    # https://wiki.nixos.org/wiki/Laptop#Power_management
+    powerManagement.enable = true;
 
     networking.hostName = "laptop";
 

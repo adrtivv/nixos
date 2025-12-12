@@ -20,10 +20,10 @@
           # https://search.nixos.org/packages?channel=unstable&show=killall&query=killall
           killall
 
-          # https://wiki.nixos.org/wiki/OpenRGB
-          # https://search.nixos.org/packages?channel=unstable&show=openrgb&query=openrgb
-          # https://gitlab.com/CalcProgrammer1/OpenRGB
-          openrgb
+          # # https://wiki.nixos.org/wiki/OpenRGB
+          # # https://search.nixos.org/packages?channel=unstable&show=openrgb&query=openrgb
+          # # https://gitlab.com/CalcProgrammer1/OpenRGB
+          # openrgb
 
           # # https://search.nixos.org/packages?channel=unstable&show=pavucontrol&query=pavucontrol
           # # https://freedesktop.org/software/pulseaudio/pavucontrol/
@@ -63,6 +63,8 @@
       };
 
       imports = [
+        config.flake.modules.homeManager.atuin
+
         config.flake.modules.homeManager.bash
 
         config.flake.modules.homeManager.bat
@@ -70,8 +72,6 @@
         config.flake.modules.homeManager.bottom
 
         config.flake.modules.homeManager.brave_browser
-
-        config.flake.modules.homeManager.broot
 
         config.flake.modules.homeManager.catppuccin
 

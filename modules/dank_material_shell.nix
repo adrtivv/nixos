@@ -1,12 +1,12 @@
 {inputs, ...}: {
   flake.modules.homeManager.dank_material_shell = {...}: {
     imports = [
-      inputs.dank_material_shell.homeModules.dankMaterialShell.default
+      inputs.dank_material_shell.homeModules.dank-material-shell
     ];
 
     # https://github.com/AvengeMedia/DankMaterialShell?tab=readme-ov-file#nixos---via-home-manager
     # https://github.com/AvengeMedia/DankMaterialShell/blob/master/nix/default.nix
-    programs.dankMaterialShell = {
+    programs.dank-material-shell = {
       enable = true;
 
       # enableSystemd = true;

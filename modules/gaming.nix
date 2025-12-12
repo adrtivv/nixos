@@ -5,9 +5,9 @@
         protonup-rs
       ];
 
-      sessionVariables = {
-        STEAM_EXTRA_COMPAT_TOOLS_PATH = "\${HOME}/.steam/root/compatibilitytools.d";
-      };
+      # sessionVariables = {
+      #   STEAM_EXTRA_COMPAT_TOOLS_PATH = "\${HOME}/.steam/root/compatibilitytools.d";
+      # };
     };
 
     # https://home-manager-options.extranix.com/?query=programs.mangohud&release=master

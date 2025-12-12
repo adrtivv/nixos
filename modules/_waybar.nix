@@ -1,4 +1,4 @@
-{...}: {
+# {...}: {
   # flake.modules.homemanager.waybar = {
   #   config,
   #   lib,
@@ -575,4 +575,4 @@
   #   #   Install.WantedBy = ["niri.service"];
   #   # };
   # };
-}
+# }

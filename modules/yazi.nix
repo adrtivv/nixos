@@ -31,7 +31,47 @@
         zoxide
       ];
 
-      # keymap = {};
+      keymap = {
+        mgr.prepend_keymap = [
+          {
+            on = "M";
+
+            run = "plugin mount";
+          }
+
+          {
+            desc = "Show or hide the preview pane";
+
+            on = "T";
+
+            run = "plugin toggle-pane min-preview";
+          }
+
+          {
+            desc = "Maximize or restore the preview pane";
+
+            on = "T";
+
+            run = "plugin toggle-pane max-preview";
+          }
+
+          {
+            on = ["g" "c"];
+
+            run = "plugin vcs-files";
+
+            desc = "Show Git file changes";
+          }
+        ];
+      };
+
+      plugins = {
+        mount = pkgs.yaziPlugins.mount;
+
+        toggle-pane = pkgs.yaziPlugins.toggle-pane;
+
+        vcs-files = pkgs.yaziPlugins.vcs-files;
+      };
 
       # settings = {};
     };

@@ -130,36 +130,7 @@
 
       # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputs
       outputs = {
-        HDMI-A-1 = {
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamefocus-at-startup
-          focus-at-startup = true;
-
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemode
-          mode = {
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemodeheight
-            height = 1080;
-
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemoderefresh
-            # refresh = 60.000;
-            refresh = 143.981;
-
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemodewidth
-            width = 1920;
-          };
-
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnameposition
-          position = {
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamepositionx
-            x = 1920;
-
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamepositiony
-            y = 0;
-          };
-
-          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamescale
-          scale = 1;
-        };
-
+        # On certain updates either linux or nvidia fuck shit up and the name of this output toggles between eDP-1 and eDP-2. Because of this the relative positions might get messed up. When that happens run `niri msg outputs` command to know what the current value for the output is and change the name below to match that.
         eDP-1 = {
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamefocus-at-startup
           focus-at-startup = true;
@@ -191,6 +162,36 @@
 
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamevariable-refresh-rate
           variable-refresh-rate = "on-demand";
+        };
+
+        HDMI-A-1 = {
+          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamefocus-at-startup
+          focus-at-startup = true;
+
+          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemode
+          mode = {
+            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemodeheight
+            height = 1080;
+
+            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemoderefresh
+            # refresh = 60.000;
+            refresh = 143.981;
+
+            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamemodewidth
+            width = 1920;
+          };
+
+          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnameposition
+          position = {
+            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamepositionx
+            x = 1920;
+
+            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamepositiony
+            y = 0;
+          };
+
+          # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamescale
+          scale = 1;
         };
       };
 

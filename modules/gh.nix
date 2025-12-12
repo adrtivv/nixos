@@ -7,7 +7,9 @@
 
       extensions = with pkgs; [
         gh-copilot
+
         gh-poi
+
         gh-markdown-preview
       ];
 

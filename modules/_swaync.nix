@@ -1,4 +1,4 @@
-{...}: {
+# {...}: {
   # flake.modules.homeManager.swaync = {
   #   config,
   #   lib,
@@ -16,4 +16,4 @@
   #     enable = true;
   #   };
   # };
-}
+# }
