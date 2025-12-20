@@ -131,7 +131,7 @@
       # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputs
       outputs = {
         # On certain updates either linux or nvidia fuck shit up and the name of this output toggles between eDP-1 and eDP-2. Because of this the relative positions might get messed up. When that happens run `niri msg outputs` command to know what the current value for the output is and change the name below to match that.
-        eDP-1 = {
+        eDP-2 = {
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsoutputsnamefocus-at-startup
           focus-at-startup = true;
 

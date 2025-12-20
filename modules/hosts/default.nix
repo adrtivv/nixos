@@ -61,7 +61,7 @@
 
       config.flake.modules.nixos.home_manager
 
-      config.flake.modules.nixos.kde_plasma
+      # config.flake.modules.nixos.kde_plasma
 
       config.flake.modules.nixos.niri
 
@@ -96,7 +96,11 @@
     };
 
     services = {
-      displayManager.sddm.enable = true;
+      displayManager.sddm = {
+        enable = true;
+
+        wayland.enable = true;
+      };
 
       flatpak.enable = true;
 

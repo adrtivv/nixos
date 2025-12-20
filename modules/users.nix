@@ -91,7 +91,7 @@
 
         config.flake.modules.homeManager.fonts
 
-        config.flake.modules.homeManager.kde_plasma_manager
+        # config.flake.modules.homeManager.kde_plasma_manager
 
         config.flake.modules.homeManager.ghostty
 
@@ -355,7 +355,7 @@
   flake.modules.nixos = let
     common = {...}: {
       imports = [
-        config.flake.modules.nixos.kde_plasma_manager
+        # config.flake.modules.nixos.kde_plasma_manager
 
         config.flake.modules.nixos.sops
       ];
