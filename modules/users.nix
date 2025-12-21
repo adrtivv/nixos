@@ -306,6 +306,8 @@
 
         config.flake.modules.homeManager.jujutsu
 
+        # config.flake.modules.homeManager.podman
+
         config.flake.modules.homeManager.zed_editor
       ];
 
@@ -396,7 +398,7 @@
         # Define a user account. Don't forget to set a password with ‘passwd’.
         users.adrtivv = {
           extraGroups = [
-            "docker"
+            # "docker"
 
             "networkmanager"
 
