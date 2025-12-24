@@ -33,6 +33,10 @@
           # https://github.com/qbittorrent/qBittorrent
           qbittorrent
 
+          # https://search.nixos.org/packages?channel=unstable&show=readest&query=readest
+          # https://github.com/readest/readest
+          readest
+
           # https://search.nixos.org/packages?channel=unstable&show=telegram-desktop&query=telegram-desktop
           # https://desktop.telegram.org/
           telegram-desktop
