@@ -42,6 +42,8 @@
 
         rust-analyzer-unwrapped
 
+        simple-completion-language-server
+
         # typescript-language-server
 
         vscode-langservers-extracted
@@ -62,11 +64,15 @@
 
                 name = "vscode-css-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "css";
           }
+
           {
             auto-format = true;
 
@@ -74,6 +80,7 @@
 
             name = "graphql";
           }
+
           {
             auto-format = true;
 
@@ -83,11 +90,15 @@
 
                 name = "typescript-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "javascript";
           }
+
           {
             auto-format = true;
 
@@ -97,11 +108,15 @@
 
                 name = "vscode-json-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "json";
           }
+
           {
             auto-format = true;
 
@@ -111,11 +126,15 @@
 
                 name = "vscode-json-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "jsonc";
           }
+
           {
             auto-format = true;
 
@@ -125,11 +144,15 @@
 
                 name = "typescript-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "jsx";
           }
+
           {
             auto-format = true;
 
@@ -139,6 +162,7 @@
 
             name = "nix";
           }
+
           {
             auto-format = true;
 
@@ -146,6 +170,7 @@
 
             name = "rust";
           }
+
           {
             auto-format = true;
 
@@ -155,11 +180,15 @@
 
                 name = "typescript-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "tsx";
           }
+
           {
             auto-format = true;
 
@@ -169,7 +198,10 @@
 
                 name = "typescript-language-server";
               }
+
               "biome"
+
+              "scls"
             ];
 
             name = "typescript";
@@ -187,6 +219,32 @@
             args = ["--config={\"formatting\":{\"command\":[\"alejandra\"]}}" "--inlay-hints=true"];
 
             command = "nixd";
+          };
+
+          scls = {
+            command = "simple-completion-language-server";
+
+            config = {
+              feature_snippets = false;
+
+              feature_words = true;
+
+              snippets_first = false;
+
+              snippets_inline_by_word_tail = false;
+
+              feature_unicode_input = false;
+
+              feature_paths = false;
+
+              feature_citations = false;
+            };
+
+            environment = {
+              LOG_FILE = "/tmp/completion.log";
+
+              RUST_LOG = "info,simple-completion-language-server=info";
+            };
           };
 
           typescript-language-server = {
