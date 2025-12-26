@@ -44,6 +44,8 @@
 
         simple-completion-language-server
 
+        tailwindcss-language-server
+
         # typescript-language-server
 
         vscode-langservers-extracted
@@ -68,6 +70,8 @@
               "biome"
 
               "scls"
+
+              "tailwindcss-ls"
             ];
 
             name = "css";
@@ -76,9 +80,33 @@
           {
             auto-format = true;
 
-            language-servers = ["graphql-language-service" "biome"];
+            language-servers = [
+              "graphql-language-service"
+
+              "biome"
+            ];
 
             name = "graphql";
+          }
+
+          {
+            auto-format = true;
+
+            language-servers = [
+              {
+                except-features = ["format"];
+
+                name = "vscode-css-language-server";
+              }
+
+              "biome"
+
+              "scls"
+
+              "tailwindcss-ls"
+            ];
+
+            name = "html";
           }
 
           {
@@ -148,6 +176,8 @@
               "biome"
 
               "scls"
+
+              "tailwindcss-ls"
             ];
 
             name = "jsx";
@@ -184,6 +214,8 @@
               "biome"
 
               "scls"
+
+              "tailwindcss-ls"
             ];
 
             name = "tsx";
@@ -245,6 +277,12 @@
 
               RUST_LOG = "info,simple-completion-language-server=info";
             };
+          };
+
+          tailwindcss-ls = {
+            args = ["--stdio"];
+
+            command = "tailwindcss-language-server";
           };
 
           typescript-language-server = {
