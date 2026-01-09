@@ -56,13 +56,13 @@
       url = "github:sodiboo/niri-flake";
     };
 
-    plasma_manager = {
-      inputs.home-manager.follows = "home_manager";
+    # plasma_manager = {
+    #   inputs.home-manager.follows = "home_manager";
 
-      inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.nixpkgs.follows = "nixpkgs";
 
-      url = "github:nix-community/plasma-manager";
-    };
+    #   url = "github:nix-community/plasma-manager";
+    # };
 
     sops_nix = {
       inputs.nixpkgs.follows = "nixpkgs";
