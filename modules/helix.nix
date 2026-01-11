@@ -58,8 +58,6 @@
       languages = {
         language = [
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -78,8 +76,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               "graphql-language-service"
 
@@ -90,8 +86,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -110,8 +104,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -128,8 +120,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -146,8 +136,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -164,8 +152,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -184,8 +170,6 @@
           }
 
           {
-            auto-format = true;
-
             # formatter = { command = "alejandra" ;};
 
             language-servers = ["nixd"];
@@ -194,16 +178,12 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = ["rust-analyzer"];
 
             name = "rust";
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
@@ -222,8 +202,6 @@
           }
 
           {
-            auto-format = true;
-
             language-servers = [
               {
                 except-features = ["format"];
