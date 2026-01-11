@@ -39,7 +39,7 @@
           nativeBuildInputs = [pkgs.pkg-config];
         };
 
-        formatter = pkgs.alejandra;
+        formatter = pkgs.nixfmt-tree;
       };
 
       systems = ["x86_64-linux"];

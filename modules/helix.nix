@@ -18,8 +18,6 @@
       enable = true;
 
       extraPackages = with pkgs; [
-        alejandra
-
         bash-language-server
 
         biome
@@ -38,7 +36,11 @@
 
         markdown-oxide
 
+        nil
+
         nixd
+
+        nixfmt-tree
 
         rust-analyzer-unwrapped
 
@@ -170,9 +172,15 @@
           }
 
           {
-            # formatter = { command = "alejandra" ;};
+            # formatter = {
+            #   command = lib.getExe pkgs.nixfmt-tree;
+            # };
 
-            language-servers = ["nixd"];
+            language-servers = [
+              (lib.getExe pkgs.nil)
+
+              (lib.getExe pkgs.nixd)
+            ];
 
             name = "nix";
           }
@@ -226,9 +234,9 @@
           };
 
           nixd = {
-            args = ["--config={\"formatting\":{\"command\":[\"alejandra\"]}}" "--inlay-hints=true"];
+            args = ["--config={\"formatting\":{\"command\":[\"${lib.getExe pkgs.nixfmt-tree}\"]}}" "--inlay-hints=true"];
 
-            command = "nixd";
+            command = lib.getExe pkgs.nixd;
           };
 
           scls = {
