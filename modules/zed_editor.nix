@@ -42,13 +42,15 @@
       ];
 
       extraPackages = with pkgs; [
-        alejandra
-
         markdown-oxide
 
-        package-version-server
+        nixfmt-tree
+
+        nil
 
         nixd
+
+        package-version-server
       ];
 
       enable = true;
@@ -76,11 +78,17 @@
 
             formatter = {
               external = {
-                command = "alejandra";
+                command = lib.getExe pkgs.nixfmt-tree;
               };
             };
 
-            language_servers = ["nixd" "!nil" "..."];
+            language_servers = [
+              (lib.getExe pkgs.nil)
+
+              (lib.getExe pkgs.nixd)
+
+              "..."
+            ];
           };
         };
 

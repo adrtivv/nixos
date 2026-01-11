@@ -18,8 +18,6 @@
       enable = true;
 
       extraPackages = with pkgs; [
-        alejandra
-
         bash-language-server
 
         biome
@@ -38,7 +36,11 @@
 
         markdown-oxide
 
+        nil
+
         nixd
+
+        nixfmt-tree
 
         rust-analyzer-unwrapped
 
@@ -77,9 +79,9 @@
 
           {
             language-servers = [
-              "graphql-language-service"
-
               "biome"
+
+              "graphql-language-service"
             ];
 
             name = "graphql";
@@ -170,9 +172,15 @@
           }
 
           {
-            # formatter = { command = "alejandra" ;};
+            # formatter = {
+            #   command = lib.getExe pkgs.nixfmt-tree;
+            # };
 
-            language-servers = ["nixd"];
+            language-servers = [
+              (lib.getExe pkgs.nil)
+
+              (lib.getExe pkgs.nixd)
+            ];
 
             name = "nix";
           }
@@ -222,17 +230,17 @@
           biome = {
             args = ["lsp-proxy"];
 
-            command = "biome";
+            command = lib.getExe pkgs.biome;
           };
 
           nixd = {
-            args = ["--config={\"formatting\":{\"command\":[\"alejandra\"]}}" "--inlay-hints=true"];
+            args = ["--config={\"formatting\":{\"command\":[\"${lib.getExe pkgs.nixfmt-tree}\"]}}" "--inlay-hints=true"];
 
-            command = "nixd";
+            command = lib.getExe pkgs.nixd;
           };
 
           scls = {
-            command = "simple-completion-language-server";
+            command = lib.getExe pkgs.simple-completion-language-server;
 
             config = {
               feature_snippets = false;
@@ -260,13 +268,13 @@
           tailwindcss-ls = {
             args = ["--stdio"];
 
-            command = "tailwindcss-language-server";
+            command = lib.getExe pkgs.tailwindcss-language-server;
           };
 
           typescript-language-server = {
             args = ["--stdio"];
 
-            command = "vtsls";
+            command = lib.getExe pkgs.vtsls;
 
             config = {
               hostInfo = "helix";
