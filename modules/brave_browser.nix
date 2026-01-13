@@ -1,14 +1,16 @@
-{...}: {
-  flake.modules.homeManager.brave_browser = {
-    lib,
-    pkgs,
-    ...
-  }: {
-    home.packages = [
-      # https://search.nixos.org/packages?channel=unstable&show=brave&query=brave
-      # https://github.com/brave/brave-browser
-      (pkgs.brave.override
-        {
+{ ... }:
+{
+  flake.modules.homeManager.brave_browser =
+    {
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      home.packages = [
+        # https://search.nixos.org/packages?channel=unstable&show=brave&query=brave
+        # https://github.com/brave/brave-browser
+        (pkgs.brave.override {
           commandLineArgs = [
             (lib.concatStringsSep "," [
               "--enable-features=TouchpadOverscrollHistoryNavigation"
@@ -18,6 +20,6 @@
             "--ignore-gpu-blocklist"
           ];
         })
-    ];
-  };
+      ];
+    };
 }

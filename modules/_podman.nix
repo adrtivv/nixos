@@ -1,7 +1,10 @@
-{...}: {
-  flake.modules.homeManager.podman = {...}: {
-    # https://home-manager-options.extranix.com/?query=services.podman&release=master
-    # https://github.com/containers/podman
-    services.podman.enable = true;
-  };
+{ ... }:
+{
+  flake.modules.homeManager.podman =
+    { ... }:
+    {
+      # https://home-manager-options.extranix.com/?query=services.podman&release=master
+      # https://github.com/containers/podman
+      services.podman.enable = true;
+    };
 }

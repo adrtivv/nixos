@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   flake.modules.nixos.nvidia = {
     # https://wiki.nixos.org/wiki/NVIDIA
     hardware.nvidia = {
@@ -12,6 +13,6 @@
       # package = config.boot.kernelPackages.nvidiaPackages.production;
     };
 
-    services.xserver.videoDrivers = lib.mkBefore ["nvidia"];
+    services.xserver.videoDrivers = lib.mkBefore [ "nvidia" ];
   };
 }

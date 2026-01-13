@@ -1,7 +1,10 @@
-{...}: {
-  flake.modules.nixos.backlight = {pkgs, ...}: {
-    hardware.i2c.enable = true;
+{ ... }:
+{
+  flake.modules.nixos.backlight =
+    { pkgs, ... }:
+    {
+      hardware.i2c.enable = true;
 
-    services.udev.packages = [pkgs.ddcutil];
-  };
+      services.udev.packages = [ pkgs.ddcutil ];
+    };
 }

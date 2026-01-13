@@ -1,353 +1,413 @@
-{lib, ...}: {
-  flake.modules.homeManager.helix = {
-    config,
-    pkgs,
-    ...
-  }: {
-    # https://nix.catppuccin.com/options/main/home/catppuccin.helix/
-    catppuccin.helix = lib.mkIf config.catppuccin.enable {
-      # https://nix.catppuccin.com/options/main/home/catppuccin.helix/#catppuccin-helix.useItalics
-      useItalics = true;
-    };
+{ lib, ... }:
+{
+  flake.modules.homeManager.helix =
+    {
+      config,
+      osConfig,
+      pkgs,
+      ...
+    }:
+    {
+      # https://nix.catppuccin.com/options/main/home/catppuccin.helix/
+      catppuccin.helix = lib.mkIf config.catppuccin.enable {
+        # https://nix.catppuccin.com/options/main/home/catppuccin.helix/#catppuccin-helix.useItalics
+        useItalics = true;
+      };
 
-    # https://home-manager-options.extranix.com/?query=programs.helix&release=master
-    # https://helix-editor.com/
-    programs.helix = {
-      defaultEditor = true;
+      # https://home-manager-options.extranix.com/?query=programs.helix&release=master
+      # https://helix-editor.com/
+      programs.helix = {
+        defaultEditor = true;
 
-      enable = true;
+        enable = true;
 
-      extraPackages = with pkgs; [
-        bash-language-server
+        extraPackages = with pkgs; [
+          bash-language-server
 
-        biome
+          biome
 
-        docker-compose-language-service
+          docker-compose-language-service
 
-        dockerfile-language-server
+          dockerfile-language-server
 
-        graphql-language-service-cli
+          graphql-language-service-cli
 
-        # https://search.nixos.org/packages?channel=unstable&show=file&query=kdlfmt
-        # https://github.com/hougesen/kdlfmt
-        kdlfmt
+          # https://search.nixos.org/packages?channel=unstable&show=file&query=kdlfmt
+          # https://github.com/hougesen/kdlfmt
+          kdlfmt
 
-        lldb
+          lldb
 
-        markdown-oxide
+          markdown-oxide
 
-        nil
+          nil
 
-        nixd
+          nixd
 
-        nixfmt-tree
+          nixfmt
 
-        rust-analyzer-unwrapped
+          rust-analyzer-unwrapped
 
-        simple-completion-language-server
+          simple-completion-language-server
 
-        tailwindcss-language-server
+          tailwindcss-language-server
 
-        # typescript-language-server
+          vscode-langservers-extracted
 
-        vscode-langservers-extracted
+          vtsls
 
-        vtsls
-
-        yaml-language-server
-      ];
-
-      languages = {
-        language = [
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "vscode-css-language-server";
-              }
-
-              "biome"
-
-              "scls"
-
-              "tailwindcss-ls"
-            ];
-
-            name = "css";
-          }
-
-          {
-            language-servers = [
-              "biome"
-
-              "graphql-language-service"
-            ];
-
-            name = "graphql";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "vscode-css-language-server";
-              }
-
-              "biome"
-
-              "scls"
-
-              "tailwindcss-ls"
-            ];
-
-            name = "html";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "typescript-language-server";
-              }
-
-              "biome"
-
-              "scls"
-            ];
-
-            name = "javascript";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "vscode-json-language-server";
-              }
-
-              "biome"
-
-              "scls"
-            ];
-
-            name = "json";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "vscode-json-language-server";
-              }
-
-              "biome"
-
-              "scls"
-            ];
-
-            name = "jsonc";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "typescript-language-server";
-              }
-
-              "biome"
-
-              "scls"
-
-              "tailwindcss-ls"
-            ];
-
-            name = "jsx";
-          }
-
-          {
-            # formatter = {
-            #   command = lib.getExe pkgs.nixfmt-tree;
-            # };
-
-            language-servers = [
-              (lib.getExe pkgs.nil)
-
-              (lib.getExe pkgs.nixd)
-            ];
-
-            name = "nix";
-          }
-
-          {
-            language-servers = ["rust-analyzer"];
-
-            name = "rust";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "typescript-language-server";
-              }
-
-              "biome"
-
-              "scls"
-
-              "tailwindcss-ls"
-            ];
-
-            name = "tsx";
-          }
-
-          {
-            language-servers = [
-              {
-                except-features = ["format"];
-
-                name = "typescript-language-server";
-              }
-
-              "biome"
-
-              "scls"
-            ];
-
-            name = "typescript";
-          }
+          yaml-language-server
         ];
 
-        language-server = {
-          biome = {
-            args = ["lsp-proxy"];
+        languages = {
+          language = [
+            {
+              auto-format = true;
 
-            command = lib.getExe pkgs.biome;
-          };
+              language-servers = [
+                {
+                  except-features = [ "format" ];
 
-          nixd = {
-            args = ["--config={\"formatting\":{\"command\":[\"${lib.getExe pkgs.nixfmt-tree}\"]}}" "--inlay-hints=true"];
+                  name = "vscode-css-language-server";
+                }
 
-            command = lib.getExe pkgs.nixd;
-          };
+                "biome"
 
-          scls = {
-            command = lib.getExe pkgs.simple-completion-language-server;
+                "scls"
 
-            config = {
-              feature_snippets = false;
+                "tailwindcss-ls"
+              ];
 
-              feature_words = true;
+              name = "css";
+            }
 
-              snippets_first = false;
+            {
+              auto-format = true;
 
-              snippets_inline_by_word_tail = false;
+              language-servers = [
+                "biome"
 
-              feature_unicode_input = false;
+                "graphql-language-service"
+              ];
 
-              feature_paths = false;
+              name = "graphql";
+            }
 
-              feature_citations = false;
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "vscode-css-language-server";
+                }
+
+                "biome"
+
+                "scls"
+
+                "tailwindcss-ls"
+              ];
+
+              name = "html";
+            }
+
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "typescript-language-server";
+                }
+
+                "biome"
+
+                "scls"
+              ];
+
+              name = "javascript";
+            }
+
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "vscode-json-language-server";
+                }
+
+                "biome"
+
+                "scls"
+              ];
+
+              name = "json";
+            }
+
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "vscode-json-language-server";
+                }
+
+                "biome"
+
+                "scls"
+              ];
+
+              name = "jsonc";
+            }
+
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "typescript-language-server";
+                }
+
+                "biome"
+
+                "scls"
+
+                "tailwindcss-ls"
+              ];
+
+              name = "jsx";
+            }
+
+            {
+              auto-format = true;
+
+              file-types = [ "nix" ];
+
+              language-servers = [
+                "nil"
+
+                {
+                  except-features = [ "format" ];
+                  name = "nixd";
+                }
+              ];
+
+              name = "nix";
+
+              scope = "source.nix";
+            }
+
+            {
+              language-servers = [ "rust-analyzer" ];
+
+              name = "rust";
+            }
+
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "typescript-language-server";
+                }
+
+                "biome"
+
+                "scls"
+
+                "tailwindcss-ls"
+              ];
+
+              name = "tsx";
+            }
+
+            {
+              auto-format = true;
+
+              language-servers = [
+                {
+                  except-features = [ "format" ];
+
+                  name = "typescript-language-server";
+                }
+
+                "biome"
+
+                "scls"
+              ];
+
+              name = "typescript";
+            }
+          ];
+
+          language-server = {
+            biome = {
+              args = [ "lsp-proxy" ];
+
+              command = lib.getExe pkgs.biome;
             };
 
-            environment = {
-              LOG_FILE = "/tmp/completion.log";
+            nil = {
+              command = lib.getExe pkgs.nil;
 
-              RUST_LOG = "info,simple-completion-language-server=info";
+              config = {
+                formatting = {
+                  command = [ (lib.getExe pkgs.nixfmt) ];
+                };
+              };
             };
-          };
 
-          tailwindcss-ls = {
-            args = ["--stdio"];
+            nixd = {
+              args = [ "--semantic-tokens=true" ];
 
-            command = lib.getExe pkgs.tailwindcss-language-server;
-          };
+              command = lib.getExe pkgs.nixd;
 
-          typescript-language-server = {
-            args = ["--stdio"];
+              config.nixd =
+                let
+                  flake_path = "${config.home.homeDirectory}/nixos";
 
-            command = lib.getExe pkgs.vtsls;
+                  flake = "(builtins.getFlake (builtins.toString ${flake_path}))";
 
-            config = {
-              hostInfo = "helix";
+                  nixos_opts = "${flake}.nixosConfigurations.${osConfig.networking.hostName}.options";
+                in
+                {
+                  inlayHints = true;
 
-              typescript = {
-                autoUseWorkspaceTsdk = true;
+                  nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
 
-                suggest.completeFunctionCalls = true;
+                  options = {
+                    flake-parts.expr = "${flake}.debug.options";
 
-                updateImportsOnFileMove.enable = "always";
+                    home-manager.expr = "${nixos_opts}.home-manager.users.type.getSubOptions []";
 
-                updateImportsOnFileSave.enabled = "always";
+                    nixos.expr = nixos_opts;
+                  };
+                };
+            };
+
+            scls = {
+              command = lib.getExe pkgs.simple-completion-language-server;
+
+              config = {
+                feature_snippets = false;
+
+                feature_words = true;
+
+                snippets_first = false;
+
+                snippets_inline_by_word_tail = false;
+
+                feature_unicode_input = false;
+
+                feature_paths = false;
+
+                feature_citations = false;
+              };
+
+              environment = {
+                LOG_FILE = "/tmp/completion.log";
+
+                RUST_LOG = "info,simple-completion-language-server=info";
+              };
+            };
+
+            tailwindcss-ls = {
+              args = [ "--stdio" ];
+
+              command = lib.getExe pkgs.tailwindcss-language-server;
+            };
+
+            typescript-language-server = {
+              args = [ "--stdio" ];
+
+              command = lib.getExe pkgs.vtsls;
+
+              config = {
+                hostInfo = "helix";
+
+                typescript = {
+                  autoUseWorkspaceTsdk = true;
+
+                  suggest.completeFunctionCalls = true;
+
+                  updateImportsOnFileMove.enable = "always";
+
+                  updateImportsOnFileSave.enabled = "always";
+                };
               };
             };
           };
         };
-      };
 
-      settings = {
-        editor = {
-          # Show currently open buffers, only when more than one exists.
-          bufferline = "multiple";
+        settings = {
+          editor = {
+            # Show currently open buffers, only when more than one exists.
+            bufferline = "multiple";
 
-          color-modes = true;
+            color-modes = true;
 
-          # Highlight all lines with a cursor
-          cursorline = true;
+            # Highlight all lines with a cursor
+            cursorline = true;
 
-          cursor-shape = {
-            insert = "bar";
+            cursor-shape = {
+              insert = "bar";
 
-            normal = "block";
+              normal = "block";
 
-            select = "underline";
+              select = "underline";
+            };
+
+            end-of-line-diagnostics = "hint";
+
+            file-picker.hidden = false;
+
+            indent-guides.render = true;
+
+            inline-diagnostics = {
+              # Show inline diagnostics when the cursor is on the line
+              cursor-line = "warning";
+
+              # Don't expand diagnostics unless the cursor is on the line
+              other-lines = "disable";
+            };
+
+            # Use relative line numbers
+            line-number = "relative";
+
+            lsp = {
+              # Disable automatically popups of signature parameter help
+              auto-signature-help = false;
+
+              display-inlay-hints = false;
+
+              # Show LSP messages in the status line
+              display-messages = true;
+            };
+
+            mouse = false;
+
+            soft-wrap.enable = true;
+
+            # Add the git branch to the status line.
+            statusline.left = [
+              "mode"
+              "spinner"
+              "version-control"
+              "file-name"
+            ];
           };
-
-          end-of-line-diagnostics = "hint";
-
-          file-picker.hidden = false;
-
-          indent-guides.render = true;
-
-          inline-diagnostics = {
-            # Show inline diagnostics when the cursor is on the line
-            cursor-line = "warning";
-
-            # Don't expand diagnostics unless the cursor is on the line
-            other-lines = "disable";
-          };
-
-          # Use relative line numbers
-          line-number = "relative";
-
-          lsp = {
-            # Disable automatically popups of signature parameter help
-            auto-signature-help = false;
-
-            display-inlay-hints = false;
-
-            # Show LSP messages in the status line
-            display-messages = true;
-          };
-
-          mouse = false;
-
-          soft-wrap.enable = true;
-
-          # Add the git branch to the status line.
-          statusline.left = ["mode" "spinner" "version-control" "file-name"];
         };
-
-        # theme = "catppuccin_mocha";
       };
     };
-  };
 }

@@ -1,126 +1,122 @@
-{...}: {
-  flake.modules.homeManager.zed_editor = {
-    config,
-    lib,
-    pkgs,
-    ...
-  }: {
-    # https://nix.catppuccin.com/options/main/home/catppuccin.zed/
-    catppuccin.zed = lib.mkIf config.catppuccin.enable {
-      # https://nix.catppuccin.com/options/main/home/catppuccin.zed/#catppuccin-zed.icons.enable
-      icons.enable = true;
+{ ... }:
+{
+  flake.modules.homeManager.zed_editor =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      # https://nix.catppuccin.com/options/main/home/catppuccin.zed/
+      catppuccin.zed = lib.mkIf config.catppuccin.enable {
+        # https://nix.catppuccin.com/options/main/home/catppuccin.zed/#catppuccin-zed.icons.enable
+        icons.enable = true;
 
-      # https://nix.catppuccin.com/options/main/home/catppuccin.zed/#catppuccin-zed.italics
-      italics = true;
-    };
+        # https://nix.catppuccin.com/options/main/home/catppuccin.zed/#catppuccin-zed.italics
+        italics = true;
+      };
 
-    # https://home-manager-options.extranix.com/?query=programs.zed-editor&release=master
-    # https://zed.dev/
-    programs.zed-editor = {
-      extensions = [
-        "basher"
+      # https://home-manager-options.extranix.com/?query=programs.zed-editor&release=master
+      # https://zed.dev/
+      programs.zed-editor = {
+        extensions = [
+          "basher"
 
-        "biome"
+          "biome"
 
-        "catppuccin"
+          "catppuccin"
 
-        "catppuccin-icons"
+          "catppuccin-icons"
 
-        "docker-compose"
+          "docker-compose"
 
-        "dockerfile"
+          "dockerfile"
 
-        "git-firefly"
+          "git-firefly"
 
-        "graphql"
+          "graphql"
 
-        "markdown-oxide"
+          "markdown-oxide"
 
-        "nix"
+          "nix"
 
-        "sql"
-      ];
+          "sql"
+        ];
 
-      extraPackages = with pkgs; [
-        markdown-oxide
+        extraPackages = with pkgs; [
+          markdown-oxide
 
-        nixfmt-tree
+          # nil
 
-        nil
+          # nixd
 
-        nixd
+          nixfmt
 
-        package-version-server
-      ];
+          package-version-server
+        ];
 
-      enable = true;
+        enable = true;
 
-      # package = specialArgs.inputs.nixpkgs_unstable.legacyPackages.${specialArgs.system}.zed-editor;
+        # package = inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zed-editor;
 
-      # # Commented out because empty object results in jq parse error.
-      # userKeymaps = {};
+        # For information on how to configure Zed, see the Zed documentation: https://zed.dev/docs/configuring-zed. To see all of Zed's default settings without changing your custom settings, run `zed: open default settings` from the command palette (cmd-shift-p / ctrl-shift-p).
+        userSettings = {
+          helix_mode = true;
 
-      # For information on how to configure Zed, see the Zed documentation: https://zed.dev/docs/configuring-zed. To see all of Zed's default settings without changing your custom settings, run `zed: open default settings` from the command palette (cmd-shift-p / ctrl-shift-p).
-      userSettings = {
-        helix_mode = true;
+          languages = {
+            Nix = {
+              format_on_save = "on";
 
-        # icon_theme = {
-        # dark = "Catppuccin Mocha";
+              formatter = {
+                external = {
+                  command = lib.getExe pkgs.nixfmt;
+                };
+              };
 
-        # light = "Catppuccin Latte";
+              # language_servers = [
+              # "nil"
 
-        # mode = "system";
-        # };
+              # "nixd"
 
-        languages = {
-          Nix = {
-            format_on_save = "on";
+              # "..."
+              # ];
+            };
+          };
 
-            formatter = {
-              external = {
-                command = lib.getExe pkgs.nixfmt-tree;
+          lsp = {
+            biome = {
+              # https://github.com/biomejs/biome-zed/blob/main/CONTRIBUTING.md#custom-biome-binary
+              binary = {
+                arguments = [ "lsp-proxy" ];
+
+                path = lib.getExe pkgs.biome;
               };
             };
 
-            language_servers = [
-              (lib.getExe pkgs.nil)
+            # nil = {
+            #   binary = {
+            #     path = lib.getExe pkgs.nil;
+            #   };
+            # };
 
-              (lib.getExe pkgs.nixd)
-
-              "..."
-            ];
+            # nixd = {
+            #   binary = {
+            #     path = lib.getExe pkgs.nixd;
+            #   };
+            # };
           };
-        };
 
-        lsp = {
-          biome = {
-            # https://github.com/biomejs/biome-zed/blob/main/CONTRIBUTING.md#custom-biome-binary
-            binary = {
-              arguments = ["lsp-proxy"];
-
-              path = lib.getExe pkgs.biome;
-            };
+          project_panel = {
+            dock = "right";
           };
+
+          relative_line_numbers = true;
+
+          soft_wrap = "editor_width";
+
+          ui_font_size = 16;
         };
-
-        project_panel = {
-          dock = "right";
-        };
-
-        relative_line_numbers = true;
-
-        soft_wrap = "editor_width";
-
-        # theme = {
-        # dark = "Catppuccin Mocha";
-
-        # light = "Catppuccin Latte";
-
-        # mode = "system";
-        # };
-
-        ui_font_size = 16;
       };
     };
-  };
 }

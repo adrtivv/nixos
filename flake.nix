@@ -3,12 +3,6 @@
 
   # https://nix.dev/manual/nix/2.28/command-ref/new-cli/nix3-flake.html#flake-inputs
   inputs = {
-    # auto_cpufreq = {
-    #   inputs.nixpkgs.follows = "nixpkgs";
-
-    #   url = "github:AdnanHodzic/auto-cpufreq";
-    # };
-
     catppuccin = {
       inputs.nixpkgs.follows = "nixpkgs";
 
@@ -38,7 +32,7 @@
     home_manager = {
       inputs.nixpkgs.follows = "nixpkgs";
 
-      # url = "github:nix-community/home-manager/release-24.11"
+      # url = "github:nix-community/home-manager/release-25.11"
       url = "github:nix-community/home-manager";
     };
 
@@ -46,7 +40,7 @@
       url = "github:vic/import-tree";
     };
 
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11"
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -56,13 +50,13 @@
       url = "github:sodiboo/niri-flake";
     };
 
-    plasma_manager = {
-      inputs.home-manager.follows = "home_manager";
+    # plasma_manager = {
+    #   inputs.home-manager.follows = "home_manager";
 
-      inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.nixpkgs.follows = "nixpkgs";
 
-      url = "github:nix-community/plasma-manager";
-    };
+    #   url = "github:nix-community/plasma-manager";
+    # };
 
     sops_nix = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,14 +76,20 @@
   };
 
   # https://nixos.wiki/wiki/Flakes#Output_schema
-  outputs = inputs:
-    inputs.flake_parts.lib.mkFlake {inherit inputs;} ({...}: {
-      imports = [
-        inputs.flake_parts.flakeModules.modules
+  outputs =
+    inputs:
+    inputs.flake_parts.lib.mkFlake { inherit inputs; } (
+      { ... }:
+      {
+        debug = true;
 
-        (inputs.import_tree ./modules)
+        imports = [
+          inputs.flake_parts.flakeModules.modules
 
-        ./templates
-      ];
-    });
+          (inputs.import_tree ./modules)
+
+          ./templates
+        ];
+      }
+    );
 }
