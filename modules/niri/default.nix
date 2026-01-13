@@ -19,7 +19,7 @@
         # https://yalter.github.io/niri/Important-Software.html#xwayland
         # https://search.nixos.org/packages?channel=unstable&show=xwayland-satellite&query=xwayland-satellite
         # https://github.com/Supreeeme/xwayland-satellite
-        xwayland-satellite-stable
+        xwayland-satellite-unstable
       ];
 
       # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettings
@@ -250,14 +250,14 @@
           enable = true;
 
           # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsxwayland-satellitepath
-          path = lib.getExe pkgs.xwayland-satellite-stable;
+          path = lib.getExe pkgs.xwayland-satellite-unstable;
         };
       };
 
       # https://home-manager-options.extranix.com/?query=xdg.portal&release=master
       # https://yalter.github.io/niri/Important-Software.html#portals
       xdg.portal = {
-        configPackages = [ pkgs.niri-stable ];
+        configPackages = [ pkgs.niri-unstable ];
 
         enable = true;
 
@@ -322,7 +322,7 @@
         # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirienable
         enable = true;
 
-        package = pkgs.niri-stable;
+        package = pkgs.niri-unstable;
       };
     };
 }

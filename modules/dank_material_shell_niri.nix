@@ -8,10 +8,26 @@
       ];
 
       # https://github.com/AvengeMedia/DankMaterialShell/blob/master/nix/niri.nix
-      programs.dank-material-shell.niri = {
-        enableKeybinds = true;
+      programs.dank-material-shell.niri.includes = {
+        enable = true;
 
-        enableSpawn = true;
+        filesToInclude = [
+          "alttab"
+
+          "binds"
+
+          "colors"
+
+          "layout"
+
+          "outputs"
+
+          "wpblur"
+        ];
+
+        originalFileName = "hm";
+
+        override = true;
       };
     };
 }

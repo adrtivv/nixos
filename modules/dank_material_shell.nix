@@ -12,11 +12,7 @@
       programs.dank-material-shell = {
         enable = true;
 
-        # enableSystemd = true;
-
-        enableVPN = false;
-
-        enableAudioWavelength = false;
+        enableDynamicTheming = true;
 
         # https://plugins.danklinux.com/dank-hooks.html
         plugins = {
@@ -31,6 +27,12 @@
 
           # https://plugins.danklinux.com/dank-battery-alerts.html
           "Dank Pomodoro Timer".src = "${inputs.dank_material_shell_plugins}/DankPomodoroTimer";
+        };
+
+        systemd = {
+          enable = true;
+
+          restartIfChanged = true;
         };
       };
     };
