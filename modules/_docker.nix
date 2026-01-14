@@ -2,8 +2,6 @@
 {
   flake.modules.nixos.docker =
     {
-
-      pkgs,
       ...
     }:
     {

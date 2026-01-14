@@ -47,6 +47,10 @@
               ytarchive
             ];
 
+            preferXdgDirectories = true;
+
+            shell.enableZshIntegration = true;
+
             # This value determines the home Manager release that your configuration is compatible with. This helps avoid breakage when a new home Manager release introduces backwards incompatible changes. You can update home Manager without changing this value. See the home Manager release notes for a list of state version changes in each release.
             stateVersion = "25.05";
           };
@@ -54,7 +58,7 @@
           imports = [
             config.flake.modules.homeManager.atuin
 
-            config.flake.modules.homeManager.bash
+            # config.flake.modules.homeManager.bash
 
             config.flake.modules.homeManager.bat
 
@@ -94,6 +98,8 @@
 
             config.flake.modules.homeManager.niri
 
+            config.flake.modules.homeManager.nix_your_shell
+
             config.flake.modules.homeManager.obs_studio
 
             config.flake.modules.homeManager.ripgrep
@@ -109,6 +115,8 @@
             config.flake.modules.homeManager.zen_browser
 
             config.flake.modules.homeManager.zoxide
+
+            config.flake.modules.homeManager.zsh
           ];
 
           programs = {
@@ -237,6 +245,8 @@
             # config.flake.modules.nixos.kde_plasma_manager
 
             config.flake.modules.nixos.sops
+
+            config.flake.modules.nixos.zsh
           ];
 
           users = {

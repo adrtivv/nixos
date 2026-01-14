@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.modules.homeManager.atuin =
-    { pkgs, ... }:
+    { ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.atuin&release=master
       # https://github.com/atuinsh/atuin
@@ -10,7 +10,7 @@
 
         enable = true;
 
-        enableBashIntegration = true;
+        enableZshIntegration = true;
       };
     };
 }

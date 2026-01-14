@@ -8,6 +8,8 @@
       programs.ghostty = {
         enable = true;
 
+        enableZshIntegration = true;
+
         settings = {
           cursor-click-to-move = true;
 
