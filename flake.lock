@@ -41,19 +41,23 @@
         "type": "github"
       }
     },
-    "dank_material_shell_plugins": {
-      "flake": false,
+    "dank_material_shell_plugin_registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1768094337,
-        "narHash": "sha256-wkvSRLjD5NhSD84MUQEnGkQU0ihWZgBrIXtoCCKWwOE=",
+        "lastModified": 1768509850,
+        "narHash": "sha256-kFecQFRhdA1iEpyB/u1mkaPvwd8E+vnwvzrhd4HXRHM=",
         "owner": "AvengeMedia",
-        "repo": "dms-plugins",
-        "rev": "da1714820ff2c997092c97d31c72faad5a4e5a01",
+        "repo": "dms-plugin-registry",
+        "rev": "2fbbf7109f37e761d410e2a0839335b6f781117c",
         "type": "github"
       },
       "original": {
         "owner": "AvengeMedia",
-        "repo": "dms-plugins",
+        "repo": "dms-plugin-registry",
         "type": "github"
       }
     },
@@ -291,7 +295,7 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "dank_material_shell": "dank_material_shell",
-        "dank_material_shell_plugins": "dank_material_shell_plugins",
+        "dank_material_shell_plugin_registry": "dank_material_shell_plugin_registry",
         "flake_parts": "flake_parts",
         "home_manager": "home_manager",
         "import_tree": "import_tree",

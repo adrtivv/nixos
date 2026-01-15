@@ -15,10 +15,10 @@
       url = "github:AvengeMedia/DankMaterialShell";
     };
 
-    dank_material_shell_plugins = {
-      flake = false;
+    dank_material_shell_plugin_registry = {
+      inputs.nixpkgs.follows = "nixpkgs";
 
-      url = "github:AvengeMedia/dms-plugins";
+      url = "github:AvengeMedia/dms-plugin-registry";
     };
 
     # disko = {

@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.yazi =
+  flake.modules.homeManager.users__adrtivv =
     { pkgs, ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.yazi&release=master

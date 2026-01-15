@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.zsh =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       programs.zsh = {
@@ -12,7 +12,7 @@
       };
     };
 
-  flake.modules.nixos.zsh =
+  flake.modules.nixos.hosts__laptop =
     { pkgs, ... }:
     {
       programs.zsh.enable = true;

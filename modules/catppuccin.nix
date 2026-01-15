@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.catppuccin =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://nix.catppuccin.com/options/main/home/catppuccin/
@@ -20,7 +20,7 @@
       ];
     };
 
-  flake.modules.nixos.catppuccin =
+  flake.modules.nixos.hosts__laptop =
     { ... }:
     {
       # https://nix.catppuccin.com/options/main/nixos/catppuccin/

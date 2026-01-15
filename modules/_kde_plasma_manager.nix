@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.kde_plasma_manager =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://nix-community.github.io/plasma-manager/options.xhtml
@@ -44,7 +44,7 @@
       };
     };
 
-  flake.modules.nixos.kde_plasma_manager =
+  flake.modules.nixos.hosts__laptop =
     { ... }:
     {
       home-manager = {

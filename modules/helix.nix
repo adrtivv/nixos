@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.homeManager.helix =
+  flake.modules.homeManager.users__adrtivv =
     {
       config,
       osConfig,

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.dank_material_shell_niri =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       imports = [

@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.obs_studio =
+  flake.modules.homeManager.users__adrtivv =
     { pkgs, ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.obs-studio&release=master

@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.niri =
+  flake.modules.homeManager.users__adrtivv =
     {
       config,
       lib,

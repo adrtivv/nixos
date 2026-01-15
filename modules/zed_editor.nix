@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.zed_editor =
+  flake.modules.homeManager.users__adrtivv =
     {
       config,
       lib,

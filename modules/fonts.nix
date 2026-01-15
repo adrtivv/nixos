@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.fonts =
+  flake.modules.homeManager.users__adrtivv =
     { pkgs, ... }:
     {
       # https://home-manager-options.extranix.com/?query=fonts&release=master

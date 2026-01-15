@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.niri =
+  flake.modules.homeManager.users__adrtivv =
     {
       config,
       lib,
@@ -224,18 +224,18 @@
             matches = [
               {
                 # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingswindow-rulesmatchesapp-id
-                app-id = ''firefox$'';
+                app-id = "firefox$";
 
                 # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingswindow-rulesmatchestitle
-                title = ''^Picture-in-Picture$'';
+                title = "^Picture-in-Picture$";
               }
 
               {
                 # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingswindow-rulesmatchesapp-id
-                app-id = ''zen$'';
+                app-id = "zen$";
 
                 # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingswindow-rulesmatchestitle
-                title = ''^Picture-in-Picture$'';
+                title = "^Picture-in-Picture$";
               }
             ];
 
@@ -273,7 +273,7 @@
       };
     };
 
-  flake.modules.nixos.niri =
+  flake.modules.nixos.hosts__laptop =
     { pkgs, ... }:
     {
       environment = {

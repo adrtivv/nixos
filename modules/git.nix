@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.git =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.git&release=master
@@ -8,7 +8,17 @@
       programs.git = {
         enable = true;
 
-        settings.init.defaultBranch = "main";
+        settings = {
+
+          init.defaultBranch = "main";
+
+          user = {
+            email = "adrtivv@gmail.com";
+
+            name = "adrtivv";
+          };
+        };
+
       };
     };
 }

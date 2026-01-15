@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.brave_browser =
+  flake.modules.homeManager.users__adrtivv =
     {
       lib,
       pkgs,

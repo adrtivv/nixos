@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.nvidia = {
+  flake.modules.nixos.hosts__laptop = {
     # https://wiki.nixos.org/wiki/NVIDIA
     hardware.nvidia = {
       modesetting.enable = true;

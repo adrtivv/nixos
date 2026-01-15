@@ -3,6 +3,6 @@
   flake.modules.nixos.hosts__laptop =
     { ... }:
     {
-      services.desktopManager.plasma6.enable = true;
+      programs.gamemode.enable = true;
     };
 }

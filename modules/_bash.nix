@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.bash =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.bash&release=master

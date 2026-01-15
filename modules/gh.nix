@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.gh =
+  flake.modules.homeManager.users__adrtivv =
     { pkgs, ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.gh&release=master

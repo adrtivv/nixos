@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.backlight =
+  flake.modules.nixos.hosts__laptop =
     { pkgs, ... }:
     {
       hardware.i2c.enable = true;

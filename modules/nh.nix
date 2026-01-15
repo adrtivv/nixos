@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.nh =
+  flake.modules.homeManager.users__adrtivv =
     { config, ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.nh&release=master

@@ -1,6 +1,6 @@
-{ config, ... }:
-let
-  common =
+{ ... }:
+{
+  flake.modules.nixos.hosts__laptop =
     { pkgs, ... }:
     {
       boot = {
@@ -22,11 +22,23 @@ let
         sessionVariables.NIXOS_OZONE_WL = "1";
       };
 
-      hardware.graphics = {
-        # https://wiki.nixos.org/wiki/Accelerated_Video_Playback/en#AMD
-        enable = true;
+      hardware = {
+        graphics = {
+          # https://wiki.nixos.org/wiki/Accelerated_Video_Playback/en#AMD
+          enable = true;
 
-        enable32Bit = true;
+          enable32Bit = true;
+        };
+
+        # https://wiki.nixos.org/wiki/NVIDIA
+        nvidia = {
+          # https://wiki.nixos.org/wiki/NVIDIA#Offload_mode
+          prime = {
+            amdgpuBusId = "PCI:6:0:0";
+
+            nvidiaBusId = "PCI:1:0:0";
+          };
+        };
       };
 
       i18n = {
@@ -53,24 +65,6 @@ let
         };
       };
 
-      imports = [
-        config.flake.modules.nixos.backlight
-
-        config.flake.modules.nixos.catppuccin
-
-        # config.flake.modules.nixos.docker
-
-        config.flake.modules.nixos.gaming
-
-        config.flake.modules.nixos.home_manager
-
-        # config.flake.modules.nixos.kde_plasma
-
-        config.flake.modules.nixos.niri
-
-        config.flake.modules.nixos.users__adrtivv
-      ];
-
       networking.networkmanager.enable = true;
 
       nix = {
@@ -87,6 +81,11 @@ let
 
       # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
+
+      # https://wiki.nixos.org/wiki/Laptop#Power_management
+      powerManagement.enable = true;
+
+      networking.hostName = "laptop";
 
       programs = {
         dconf.enable = true;
@@ -108,6 +107,18 @@ let
         flatpak.enable = true;
 
         fstrim.enable = true;
+
+        # Enable touchpad support (enabled by default in most desktop environments.).
+        libinput.enable = true;
+
+        # logind = {
+        # Each field can have one of the following variants as values: "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"
+        # lidSwitch = "suspend";
+
+        # lidSwitchDocked = "ignore";
+
+        # lidSwitchExternalPower = "suspend";
+        # };
 
         openssh.enable = true;
 
@@ -135,61 +146,5 @@ let
       system.stateVersion = "25.05"; # Did you read the comment?
 
       time.timeZone = "Asia/Kolkata";
-    };
-in
-{
-  flake.modules.nixos.hosts__desktop =
-    { ... }:
-    {
-      imports = [
-        common
-
-        config.flake.modules.nixos.nvidia
-
-        # config.flake.modules.nixos.users__anon
-      ];
-
-      networking.hostName = "desktop";
-    };
-
-  flake.modules.nixos.hosts__laptop =
-    { ... }:
-    {
-      # https://wiki.nixos.org/wiki/NVIDIA
-      hardware.nvidia = {
-        # https://wiki.nixos.org/wiki/NVIDIA#Offload_mode
-        prime = {
-          amdgpuBusId = "PCI:6:0:0";
-
-          nvidiaBusId = "PCI:1:0:0";
-        };
-      };
-
-      imports = [
-        common
-
-        config.flake.modules.nixos.bluetooth
-
-        config.flake.modules.nixos.nvidia_hybrid
-      ];
-
-      # https://wiki.nixos.org/wiki/Laptop#Power_management
-      powerManagement.enable = true;
-
-      networking.hostName = "laptop";
-
-      services = {
-        # Enable touchpad support (enabled by default in most desktop environments.).
-        libinput.enable = true;
-
-        # logind = {
-        # Each field can have one of the following variants as values: "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"
-        # lidSwitch = "suspend";
-
-        # lidSwitchDocked = "ignore";
-
-        # lidSwitchExternalPower = "suspend";
-        # };
-      };
     };
 }

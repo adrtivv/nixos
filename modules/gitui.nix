@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.gitui =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.gitui&release=master

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.zen_browser =
+  flake.modules.homeManager.users__adrtivv =
     { pkgs, ... }:
     {
       home.packages = [

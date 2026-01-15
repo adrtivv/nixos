@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.podman =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://home-manager-options.extranix.com/?query=services.podman&release=master

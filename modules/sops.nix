@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.sops =
+  flake.modules.homeManager.users__adrtivv =
     {
       config,
       pkgs,
@@ -25,7 +25,7 @@
       };
     };
 
-  flake.modules.nixos.sops =
+  flake.modules.nixos.hosts__laptop =
     { lib, ... }:
     {
       imports = [ inputs.sops_nix.nixosModules.sops ];

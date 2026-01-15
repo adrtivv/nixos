@@ -1,4 +1,8 @@
-My nix flake based system configuration.
+# About
+
+System configuration managed by nix.
+
+This follows [the dendritic pattern](https://github.com/mightyiam/dendritic).
 
 # Some sops information
 
@@ -6,7 +10,7 @@ This configuration makes use of `sops` with `age` asymmetric encryption to handl
 
 To encrypt the secrets any one of the `age` public keys specified in `.sops.yaml` file at the root directory of this repository are used.
 
-To decrypt the secrets any one of the `age` private keys present at `/var/lib/sops-nix/keys.txt` on a host or `/home/<user_name>/.config/sops/age/keys.txt` on the home directory of a user `<user_name>`, both specified in `.sops.yaml` file at the root directory of this repository are used.
+To decrypt the secrets any one of the `age` private keys present at `/var/lib/sops-nix/keys.txt` on a host or `/home/<user_name>/.config/sops/age/keys.txt` in the home directory of a user `<user_name>`, both specified in `.sops.yaml` file at the root directory of this repository are used.
 
 The age public and private keys for the user with `<user_name>` are generated with `x25519` algorithm and they are host independent.
 
@@ -32,7 +36,7 @@ To create the hashed user password run the command below:
 mkpasswd -s
 ```
 
-Whenever a new age public key is added to `keys` field in the `.sops.yaml` file at the root directory of this repository run the command below:
+Whenever a new age public key is added to, removed from or modified in the `keys` field in the `.sops.yaml` file at the root directory of this repository run the command below to re-encrypt the `secrets.yaml` file with the new state of the `.sops.yaml` file:
 ```bash
 sops updatekeys ./secrets.yaml
 ```

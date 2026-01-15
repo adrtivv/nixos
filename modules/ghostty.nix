@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.ghostty =
+  flake.modules.homeManager.users__adrtivv =
     { ... }:
     {
       # https://home-manager-options.extranix.com/?query=programs.ghostty&release=master

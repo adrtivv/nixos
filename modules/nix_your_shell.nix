@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.homeManager.nix_your_shell =
+  flake.modules.homeManager.users__adrtivv =
     {
       ...
     }:

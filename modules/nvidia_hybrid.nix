@@ -1,10 +1,8 @@
-{ config, ... }:
+{ ... }:
 {
-  flake.modules.nixos.nvidia_hybrid =
-    { lib, ... }:
+  flake.modules.nixos.hosts__laptop =
+    { ... }:
     {
-      imports = [ config.flake.modules.nixos.nvidia ];
-
       # https://wiki.nixos.org/wiki/NVIDIA
       hardware.nvidia = {
         # https://wiki.nixos.org/wiki/NVIDIA#Graphical_corruption_and_system_crashes_on_suspend/resume
