@@ -22,7 +22,7 @@
 
         enableDynamicTheming = true;
 
-        enableSystemMonitoring = false;
+        enableSystemMonitoring = true;
 
         enableVPN = false;
 
@@ -49,11 +49,7 @@
           # powerUsagePlugin.enable = true;
         };
 
-        systemd = {
-          enable = true;
-
-          restartIfChanged = true;
-        };
+        systemd.enable = true;
       };
     };
 }

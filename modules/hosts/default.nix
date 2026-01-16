@@ -133,6 +133,8 @@
           pulse.enable = true;
         };
 
+        power-profiles-daemon.enable = true;
+
         xserver = {
           xkb = {
             layout = "us";
