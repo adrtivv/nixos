@@ -9,7 +9,7 @@
   outputs =
     inputs:
     inputs.flake_parts.lib.mkFlake { inherit inputs; } (
-      { ... }@top:
+      { ... }:
       {
         perSystem =
           {
@@ -30,10 +30,13 @@
 
             devShells.default = pkgs.mkShell {
               buildInputs = with pkgs; [
-                nil
+                nodejs
 
-                nixd
+                pnpm
               ];
+
+              # https://blog.platformatic.dev/handling-environment-variables-in-nodejs#heading-set-nodeenvproduction-for-all-environments
+              env.NODE_ENV = "production";
 
               nativeBuildInputs = [ pkgs.pkg-config ];
             };

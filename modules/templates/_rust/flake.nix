@@ -9,7 +9,7 @@
   outputs =
     inputs:
     inputs.flake_parts.lib.mkFlake { inherit inputs; } (
-      { ... }@top:
+      { ... }:
       {
         perSystem =
           {
@@ -30,13 +30,16 @@
 
             devShells.default = pkgs.mkShell {
               buildInputs = with pkgs; [
-                nodejs
-
-                pnpm
+                cargo
+                clippy
+                glib
+                rust-analyzer
+                rustc
+                rustfmt
               ];
 
-              # https://blog.platformatic.dev/handling-environment-variables-in-nodejs#heading-set-nodeenvproduction-for-all-environments
-              env.NODE_ENV = "production";
+              # Required by rust-analyzer.
+              env.RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
               nativeBuildInputs = [ pkgs.pkg-config ];
             };
