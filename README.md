@@ -1,8 +1,9 @@
 # About
 
-System configuration managed by nix.
+System configuration managed by nix. It follows **the dendritic pattern**. More information can be found at these links:
 
-This follows [the dendritic pattern](https://github.com/mightyiam/dendritic).
+1. https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki
+2. https://github.com/mightyiam/dendritic
 
 # Some sops information
 

@@ -1,5 +1,5 @@
 {
-  description = "Nixos system configuration.";
+  description = "Nixos system configuration following the dendritic pattern with flake-parts module.";
 
   # https://nix.dev/manual/nix/2.28/command-ref/new-cli/nix3-flake.html#flake-inputs
   inputs = {
@@ -81,14 +81,8 @@
     inputs.flake_parts.lib.mkFlake { inherit inputs; } (
       { ... }:
       {
-        debug = true;
-
         imports = [
-          inputs.flake_parts.flakeModules.modules
-
           (inputs.import_tree ./modules)
-
-          ./templates
         ];
       }
     );
