@@ -50,6 +50,12 @@
       url = "github:sodiboo/niri-flake";
     };
 
+    open_code = {
+      inputs.nixpkgs.follows = "nixpkgs";
+
+      url = "github:anomalyco/opencode";
+    };
+
     # plasma_manager = {
     #   inputs.home-manager.follows = "home_manager";
 
