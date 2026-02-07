@@ -8,11 +8,8 @@
       programs.satty = {
         enable = true;
 
-        settings = {
-          general = {
-            fullscreen = true;
-          };
-        };
+        # # https://github.com/Satty-org/Satty?tab=readme-ov-file#configuration-file
+        # settings = {};
       };
     };
 }

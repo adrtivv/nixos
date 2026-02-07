@@ -643,27 +643,69 @@
           };
 
           "Print" = {
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-            # Uncomment this when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
-            # action = config.lib.niri.actions.screenshot;
-            # Remove when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
-            action.screenshot = [ ];
+            # # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+            # # Uncomment this when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
+            # # action = config.lib.niri.actions.screenshot;
+            # # Remove when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
+            # action.screenshot = [ ];
+
+            action.spawn-sh = ''
+              tmp_img="$(mktemp --suffix=.png)"
+
+              trap 'rm -f "$tmp_img"' EXIT
+
+              ${lib.getExe pkgs.niri-unstable} msg action screenshot --path "$tmp_img" || exit 1
+
+              while [ ! -s "$tmp_img" ]; do
+                sleep 0.5
+              done
+
+              ${lib.getExe pkgs.satty} --filename "$tmp_img"
+            '';
           };
 
           "Ctrl+Print" = {
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-            # Uncomment this when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
-            # action = config.lib.niri.actions.screenshot-screen;
-            # Remove when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
-            action.screenshot-screen = [ ];
+            # # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+            # # Uncomment this when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
+            # # action = config.lib.niri.actions.screenshot-screen;
+            # # Remove when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
+            # action.screenshot-screen = [ ];
+
+            action.spawn-sh = ''
+              tmp_img="$(mktemp --suffix=.png)"
+
+              trap 'rm -f "$tmp_img"' EXIT
+
+              ${lib.getExe pkgs.niri-unstable} msg action screenshot-screen --path "$tmp_img" || exit 1
+
+              while [ ! -s "$tmp_img" ]; do
+                sleep 0.5
+              done
+
+              ${lib.getExe pkgs.satty} --filename "$tmp_img"
+            '';
           };
 
           "Alt+Print" = {
-            # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
-            # Uncomment this when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
-            # action = config.lib.niri.actions.screenshot-window;
-            # Remove when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
-            action.screenshot-window = [ ];
+            # # https://github.com/sodiboo/niri-flake/blob/main/docs.md#programsnirisettingsbindsnameaction
+            # # Uncomment this when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
+            # # action = config.lib.niri.actions.screenshot-window;
+            # # Remove when [this (https://github.com/sodiboo/niri-flake/issues/1380) issue is fixed.
+            # action.screenshot-window = [ ];
+
+            action.spawn-sh = ''
+              tmp_img="$(mktemp --suffix=.png)"
+
+              trap 'rm -f "$tmp_img"' EXIT
+
+              ${lib.getExe pkgs.niri-unstable} msg action screenshot-window --path "$tmp_img" || exit 1
+
+              while [ ! -s "$tmp_img" ]; do
+                sleep 0.5
+              done
+
+              ${lib.getExe pkgs.satty} --filename "$tmp_img"
+            '';
           };
 
           "Mod+Escape" = {
